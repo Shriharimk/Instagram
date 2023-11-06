@@ -1,0 +1,113 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #444444; /* Set background color to white */
+}
+
+.form-container {
+  max-width: 300px;
+  padding: 20px;
+  background-color: #444444; /* Set background color to white */
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center items horizontally */
+}
+
+/* Style form elements */
+.form-group {
+  margin-bottom: 15px;
+  width: 100%; /* Expand form-group to full width */
+  text-align: left; /* Adjust text alignment */
+  background-color: #444444; /* Set background color to white */
+}
+
+label {
+  font-weight: bold;
+  color: black; /* Set font color to black */
+}
+
+/* Adjust input width and alignment */
+mat-form-field {
+  width: 100%;
+  text-align: left; /* Adjust text alignment */
+  background-color: white; /* Set background color to white */
+}
+mat-label{
+  color: lightgrey;
+}
+
+/* Adjust button styling */
+button {
+  background-color: #007bff;
+  color: white; /* Set font color to white */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* Expand button to full width */
+  margin-top: 15px; /* Add space between button and form fields */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+.row{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.logo{
+  margin-bottom: 20px;
+  padding-right: 20px; /* Add spacing between the logo and buttons */
+}
+.insta-logo{
+  width: 100%;
+}
+
+/*sign in with google
+$white: #fff;
+$google-blue: #4285f4;
+$button-active-blue: #1669F2;*/
+
+.google-btn {
+  margin-top: 10px;
+  width: 100%;
+  height: 42px;
+  background-color: #4285f4;
+  border-radius: 2px;
+  box-shadow: 0 3px 4px 0 rgba(0,0,0,.25);
+  .google-icon-wrapper {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 1px;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    background-color: #fff;
+  }
+  .google-icon {
+    position: absolute;
+    margin-top: 11px;
+    margin-left: 11px;
+    width: 18px;
+    height: 18px;
+  }
+  .btn-text {
+    float: right;
+    margin: 11px 11px 0 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+    font-family: "Roboto";
+  }
+  &:hover {
+    box-shadow: 0 0 6px #4285f4;
+  }
+  &:active {
+    background: #1669F2;
+  }
+}

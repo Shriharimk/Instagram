@@ -1,0 +1,103 @@
+<!-- <div class="header">
+  <div class="left-sec">
+    <img class="insta-logo" src="assets/images/instagram-logo.png"  alt="Instagram" >
+  </div>
+</div>
+<div class="sidebar">
+  <div class="sb-container">
+    <div class="sb-container-1">
+      <div class="sb">
+        <img (click)="route('/actualpage')" style="cursor: pointer;" class="home" src="../../assets/home.png">
+        <div (click)="route('/actualpage')" style="cursor: pointer;" class="button-descp">Home</div>
+      </div>
+      <div class="sb">
+        <img (click)="route('/actualpage')" style="cursor: pointer;" class="explore" src="../../assets/search.png">
+        <div (click)="route('/actualpage')" style="cursor: pointer;" class="button-descp">Search</div>
+      </div>
+    </div>
+    <div class="sb-container-logout">
+      <button mat-button color="warn" class="logout" type="submit" (click)="onLogout()">Logout</button>
+    </div>
+  </div>
+</div>
+  <div class="main-container">
+    <div *ngFor="let post of userPosts" class="post">
+      <div class="container">
+        <div class="column">
+          <div class="username"><b>{{ post.username }}</b></div>
+          
+          <div class="post-image">
+            <img class="post-img"  src="{{post.path}}" alt="Post Image">
+          </div>
+          <div class="description"><b>{{ post.username }}</b> {{ post.description }}</div>
+        </div>
+      </div>
+    </div>    
+  </div>
+
+ -->
+ <div class="header">
+  <div class="left-sec">
+    <img class="insta-logo" src="assets/images/instagram-logo.png"  alt="Instagram" >
+  </div>
+</div>
+<div class="sidebar">
+  <div class="sb-container">
+    <div class="sb-container-1">
+      <div class="sb">
+        <img (click)="route('/actualpage')" style="cursor: pointer;" class="home" src="../../assets/home.png">
+        <div (click)="route('/actualpage')" style="cursor: pointer;" class="button-descp">Home</div>
+      </div>
+      <div class="sb" title="New Post!" >
+        <a style="cursor: pointer;" title="New Post" ><img class="nwpost-icon" src="../../assets/video_7264012.png" alt="NewPost"></a>
+        <div class="button-descp">Reels</div>
+      </div>
+      <div class="sb" title="New Post!" >
+        <a style="cursor: pointer;" title="New Post" ><img class="nwpost-icon" src="../../assets/compass_3405524.png" alt="NewPost"></a>
+        <div class="button-descp">Explore</div>
+      </div>
+      <div class="sb" title="New Post!" >
+        <a style="cursor: pointer;" title="New Post" ><img class="nwpost-icon" src="../../assets/messenger_3781712.png" alt="NewPost"></a>
+        <div class="button-descp">Msgs</div>
+      </div>
+      <div class="sb" title="New Post!" >
+        <a style="cursor: pointer;" title="New Post" ><img class="nwpost-icon" src="../../assets/notification.png" alt="NewPost"></a>
+        <div class="button-descp">Alerts</div>
+      </div>
+    </div>
+    <div class="sb-container-logout">
+      <button mat-button color="warn" class="logout" type="submit" (click)="onLogout()">Logout</button>
+    </div>
+  </div>
+</div>
+<div class="main">
+  <div class="row1">
+    <div class="r1col1">
+      <img class="profile-image" src="{{user.profileImage}}" alt="Profile Picture">
+    </div>
+    <div class="r1col2">
+      <div class="c2username">
+        {{user.username}}
+      </div>
+      <div class="c2description">
+        {{user.description}}
+      </div>
+      <div class="c2edit">
+        <button class="button-descp" (click)="edit()">Edit</button>
+      </div>
+
+    </div>
+  </div>
+  <div class="row2">
+    Posts
+  </div>
+  <div class="row3">
+      <div *ngFor="let post of userPosts" class="post">
+        <div class="col1">
+          <div class="post-image">
+            <img class="post-img"  src="{{post.path}}" alt="Post Image">
+          </div>        
+      </div>    
+    </div>
+  </div>    
+</div>

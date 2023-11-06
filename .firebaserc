@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "projectdemo-9f2d5": {
+      "hosting": {
+        "projectdemo": [
+          "projectdemo-9f2d5"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "projectdemo-9f2d5"
+  }
+}

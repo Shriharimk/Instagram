@@ -1,0 +1,195 @@
+/* Style the form container */
+.signup-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 50px;
+  padding-top: 10px;
+  border-radius: 5px;
+  background-color: #444444;
+  position: relative;
+}
+
+
+/* Style form elements */
+.form-group {
+  margin-bottom: 25px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.my-form {
+  background-color: #444444;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  padding: 5px;
+  margin-right: 2px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #b6b6b6;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+
+
+/* Apply these styles to the main container of your signup form */
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* 100% of the viewport height */
+  overflow: hidden; /* Prevent the page from being scrollable */
+  margin: 0;
+  position: relative;
+  background-color: #444444;
+  padding: 0;
+}
+
+/* Left Pane Styles */
+.left-pane {
+  flex: 2; /* Take up 50% of the available space */
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1000px;
+}
+
+.left-pane img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+/* Right Pane Styles */
+.right-pane {
+  flex: 1.5; /* Take up 50% of the available space */
+  background-color: rgba(214, 214, 214, 0.726);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.plane-container{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.company-logo{
+  padding:10px;
+  font-size: 50px;
+  margin-top:10px;
+  /* background-image: url('/src/assets/dark_logo.webp'); */
+  margin-bottom:-20px;
+  color: white;
+  font-family:Arial, Helvetica, sans-serif;
+}
+.animate-charcter{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 2s linear infinite;
+  display: inline-block;
+  font-size: 37px;
+  margin-left: 60px;
+  margin-bottom: -30px;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+/* passwordcheck */
+.weak {
+  background-color: red;
+  width: 25%;
+}
+
+.medium {
+  background-color: orange;
+  width: 50%;
+}
+
+.strong {
+  background-color: green;
+  width: 75;
+}
+
+.very-strong {
+  background-color: blue;
+  width: 100%;
+}
+
+.strength-bar {
+  height: 5px;
+  border-radius: 2px;
+}
+
+.strength-text {
+  font-weight: bold;
+}
+.button {
+  width: fit-content;
+  display: flex;
+  /* padding: 1.2em 1rem; */
+  cursor: pointer;
+  gap: 0.4rem;
+  font-weight: bold;
+  border-radius: 30px;
+  text-shadow: 2px 2px 3px rgb(136 0 136 / 50%);
+  background: linear-gradient(15deg, #880088, #aa2068, #cc3f47, #de6f3d, #f09f33, #de6f3d, #cc3f47, #aa2068, #880088) no-repeat;
+  /* background-size: 300%; */
+  color: #fff;
+  border: none;
+  background-position: center;
+  box-shadow: 0 30px 10px -20px rgba(0,0,0,.2);
+  transition: background .3s ease;
+}
+
+.button:hover {
+  background-size: 320%;
+  background-position: right center;
+}
+
+.button:hover svg {
+  fill: #fff;
+}
+
+.button svg {
+  width: 100%;
+  fill: #f09f33;
+  transition: .3s ease;
+}
+

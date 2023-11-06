@@ -1,0 +1,39 @@
+.center-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('/assets/Designer.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #444;
+}
+
+.logo {
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+.insta-logo {
+  height: 100px;
+  width: 100%;
+}
+
+.choice {
+  display: flex;
+  flex-direction: column;
+}
+
+.choice-btn {
+  margin: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: black;
+  background-color: lightgray;
+  border: none;
+  border-radius: 5px;
+}

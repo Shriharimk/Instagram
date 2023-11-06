@@ -1,0 +1,47 @@
+<div class="flex-container">
+  <div class="plane-container">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h3 class="animate-charcter"><img class="insta-logo" src="../../assets/images/insta-dark.png"></h3>
+        </div>
+      </div>
+    </div>
+    <div class="signup-container">
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="my-form">
+        
+        <mat-form-field class="form-group">
+          <mat-label class="form-label">Username</mat-label>
+          <input matInput type="text" name="username" formControlName="username" required>
+          <mat-error *ngIf="signupForm.get('username').invalid && signupForm.get('username').touched" class="form-error">Invalid username</mat-error>
+          <mat-error *ngIf="signupForm.get('username').hasError('nospaceAllowed') && signupForm.get('username').touched" class="form-error">Username should not have spaces</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-group">
+          <mat-label class="form-label">Email</mat-label>
+          <input matInput type="email" name="email" formControlName="email" required>
+          <mat-error *ngIf="signupForm.get('email').invalid && signupForm.get('email').touched" class="form-error">Invalid email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-group">
+          <mat-label class="form-label">Create Password</mat-label>
+          <input matInput type="password" name="password" formControlName="password" required (focus)="showStrengthBar = true" (blur)="showStrengthBar = false">
+          <div *ngIf="showStrengthBar" class="strength-bar" [ngClass]="getStrengthClass(signupForm.get('password').value)"></div>
+          <div *ngIf="showStrengthBar" class="strength-text">{{ getStrengthText(signupForm.get('password').value) }}</div>
+          <mat-error *ngIf="signupForm.get('password').invalid && signupForm.get('password').touched" class="form-error">Invalid password</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="form-group">
+          <mat-label class="form-label">Confirm Password</mat-label>
+          <input matInput type="password" name="repassword" formControlName="repassword" required>
+          <mat-error *ngIf="signupForm.get('repassword').hasError('passwordsMatch') && signupForm.get('repassword').touched" class="form-error">Passwords do not match</mat-error>
+        </mat-form-field>
+
+        <!-- <button mat-button [disabled]="!signupForm.valid" class="form-submit" type="submit">Sign Up</button> -->
+        <button mat-button [disabled]="!signupForm.valid" type="submit" class="button">
+          Submit
+      </button>
+      </form>
+    </div>
+  </div>
+</div>

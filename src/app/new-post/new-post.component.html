@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Create Post</mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="newPost" (ngSubmit)="onClick()">
+    <div>
+      <textarea formControlName="description" placeholder="Type Message...."></textarea>
+    </div>
+    
+    <mat-card-actions align="end">
+      <button mat-button>
+        <label for="photo-upload" ></label>
+        <input formControlName="image" #pic (change)="onPicSelection(pic)" id="photo-upload"type="file" accept="image/*">
+        <mat-icon>insert_photo</mat-icon>
+      </button>
+      <button type="submit" mat-flat-button >Post</button>
+    </mat-card-actions>
+</form>
+</mat-card>

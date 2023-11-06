@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="logo">
+    <img class="insta-logo" [src]="currentLogo" alt="Instagram">
+  </div>
+  <div class="form-container">
+    <img class="insta-logo" src="../../assets/images/insta-dark.png">
+    <form #loginForm="ngForm" (ngSubmit)="onLoginSubmit()" class="my-form">
+      
+      <mat-form-field class="form-group">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" name="email" [(ngModel)]="user.email" required email #email="ngModel">
+        <mat-error *ngIf="email.invalid && email.touched">Please enter a valid email</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-group">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password" [(ngModel)]="user.password" required>
+      </mat-form-field>
+
+      <a 
+      (click)="route('forgot-password')"
+      style="cursor: pointer;
+      color: lightgrey;"
+      >Forgot Password?</a>
+
+      <button mat-button [disabled]="!loginForm.valid" type="submit">Login</button>
+      <mat-label style="margin-top: 10px;">Or</mat-label>
+      
+      <div class="google-btn">
+        <a (click)="signInWithGoogle()">
+          <div class="google-icon-wrapper">
+            <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+          </div>
+          <p class="btn-text" style="text-align: center;"><b>Sign in with google</b></p>
+        </a>
+      </div>
+
+      <a 
+      (click)="route('signup')"
+      style="cursor: pointer;
+      color: lightgrey;
+      margin-top: 15px;
+      font-size: 15px;"
+      >New here? Come Join Us!!</a>
+    </form>
+  </div>
+
+  <div *ngIf="authenticated && submitted" class="row">
+    <div class="row">
+      <h3>Success</h3>
+      <p>Email: {{user.email}}</p>
+      <p>Password: {{user.password}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="user-search">
+  <input
+    type="text"
+    [(ngModel)]="searchInput"
+    (input)="onSearchInputChange(searchInput)"
+    placeholder="Search Users"
+  />
+  <ul class="user-results" *ngIf="userResults.length > 0">
+    <li *ngFor="let user of userResults">
+      <a (click)="selectUser(user)">
+        {{ user.username }}
+      </a>
+    </li>
+  </ul>
+</div>

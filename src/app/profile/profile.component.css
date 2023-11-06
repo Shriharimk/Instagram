@@ -1,0 +1,469 @@
+/* #profile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  background-color: rgb(29, 29, 29);
+  z-index: 9;
+  transition-duration: .5s;
+  overflow: hidden;
+} */
+.hide-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.active {
+  width: 30%; /* Adjust the width you prefer for the profile component */
+}
+
+.idle {
+  width: 0;
+}
+/* #profile-content {
+  width: 100%;
+  max-width: 500px;
+  padding: 2em;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+} */
+
+#profile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 30%;
+  background-color: rgb(29, 29, 29);
+  z-index: 9;
+  transition-duration: 0.5s;
+  overflow: hidden;
+}
+
+#profile-content {
+  width: 100%;
+  padding: 2em;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+/* .hide-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+} */
+
+input, textarea {
+  width: 100%;
+  padding: 1em;
+  border-radius: 1em;
+  margin-bottom: .5em;
+  resize: none;
+  outline: none;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/*frmo atcual-page*/
+.plane{
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  position: relative;
+  height: 100vh; /* 100% viewport height */
+  /* margin-top: 80px; */
+  padding-top: 50px;
+  scroll-margin-top: 30px;
+}
+
+.container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  
+}
+.column{
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  width: 500px;
+  border-top: 1px solid lightgray;
+
+}
+.description{
+  height: 10%;
+  margin-left: 20px;
+  /* background-color: red; */
+}
+
+.like-comment{
+  display: flex;
+  flex-direction: row;
+  height: 5%;
+  margin-left:4px;
+  margin-top: 2px;
+  /* background-color: green; */
+}
+.like{
+  display: flex;
+  flex-direction: row;
+  /* background-color: orange; */
+  align-items: center;
+  justify-content: space-around;
+  height: 65%;
+  margin-left: 10px;
+  padding: 8px;
+  
+  }
+  .like-icon{
+    height: 100%;
+    width: 100%;
+  }
+
+.comment{
+  display: flex;
+  flex-direction: row;
+  /* background-color: orange; */
+  align-items: center;
+  justify-content: space-around;
+  height: 60%;
+  margin-left: 0px;
+  padding: 8px;
+
+}
+.comment-icon{
+  height: 100%;
+  width: 100%;
+}
+
+.post-image{
+  display: flex;
+  flex-direction: row;
+  height: 80%;
+  /* background-color: blue; */
+  justify-content: center;
+  margin-bottom: 3px;
+  max-width: 500px;
+  max-height: 500px;
+  overflow: hidden;
+
+}
+.post-img{
+  border-radius: 2px;
+  border-radius: 2px;
+  max-width: 100%; /* Set the maximum width to 100% of the container */
+  max-height: 100%; /* Set the maximum height to 100% of the container */
+  object-fit: contain;
+}
+.username{
+  display: flex;
+  flex-direction: row;
+  height: 8%;
+  align-items: center;
+  margin-left: 16px;
+  margin-bottom: 2px;
+
+}
+.nwpost-icon img,
+.like-icon img,
+.comment-icon img {
+  max-width: 100%; /* Makes the image responsive to its parent container */
+  max-height: 100%; /* Makes the image responsive to its parent container */
+}
+/* .new-post {
+  position: fixed;
+  height: 55px;
+  width: 55px;
+  bottom: 2em; 
+  right: 2em; 
+}
+.nwpost-icon{
+  height: 100%;
+  width: 100%;
+} */
+
+
+/*header*/
+.header{
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 65px;
+  background-color:black;
+  z-index: 1000;
+  margin-bottom: 20px;
+}
+.left-sec{
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  font-size: 30px;
+  font-family: Roboto;
+  align-items: center;
+  justify-items: center;
+  padding-top: 5px;
+  color: White;
+}
+
+.hamburger{
+  width:100%;
+  height: 24px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.insta-logo{
+  height: 50px;
+  width: 100%;
+  margin-left: 18px;
+
+}
+/* .searchbox{
+  font-size: 18px;
+  flex: 1;
+  height: 39px;
+  border-radius: 2px;
+  border: 1px solid lightgrey;
+  font-family: Roboto;
+  padding-left: 5px;
+  box-shadow: inset 1px 2px 3px rgba(0, 0, 0 , 0.05);
+  width: 0;/* to allow the search box to shrik completely
+}
+.search-icon{
+  height:43px;
+  width: 60px;
+  background-color: lightgrey;
+  border: 1px solid lightgrey;
+  margin-left: -1;
+  margin-right: 8px;
+}
+.search-button{
+  height: 25px;
+  padding-top: 4px;
+}
+.voice-button{
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgb(218, 221, 221);
+  
+}
+.voice{
+  height: 25px;
+  padding-top: 4px;
+} */
+.middle-sec{
+  flex: 1;
+  display: flex;
+  margin-left: 20px;
+  margin-right: 30px;
+  max-width: 500px;/* to prevent the search box from growing endlessly*/
+  align-items: center;
+}
+.right-sec{
+  display: flex;
+  width: 180px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile{
+  height: 31px;
+  border-radius: 15px;
+}
+
+/*sidebar*/
+
+.sidebar{
+  position: fixed;
+  top: 66px;
+  left: 0px;
+  bottom: 0px;
+  width: 200px;
+  background-color: white;
+  font-family: Roboto;
+  z-index: 1001;
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+.sb{
+  height: 74px;  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;  
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+  
+}
+div{
+  font-size: 15px;
+}
+.sb-container-logout{
+  height: 74px;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.button-descp{
+  font-size: 15px;
+}
+.sb img{
+  height: 35px;
+  margin-bottom: 4px;
+}
+.sb-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+}
+@media (max-width: 1000px) {
+  .sidebar {
+    display: block;
+    width: 80px; /* Adjust the width as needed */
+  }
+  /* .sb {
+    justify-content: center;
+    font-size: 0;
+  } */
+  .sb img {
+    height: 35px;
+  }
+  .button-descp  {
+    display: none; 
+  }
+  .sb-container-logout {
+    display: none; /* Hide the logout button */
+  }
+}
+
+/* Main content adjustments for screens below 800px */
+@media (max-width: 800px) {
+  .main-container {
+    padding-left: 120px; /* Adjust the left padding to accommodate the sidebar */
+  }
+  .container {
+    width: 100%; /* Make the content full width when the sidebar is visible */
+  }
+  .column {
+    width: 100%; /* Make the content full width when the sidebar is visible */
+  }
+}
+
+
+/*profile page grids*/
+.main{
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.row1{
+  height: 35vh;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.r1col1 {
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  /* background-color: lightcyan; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-image {
+  border-radius: 50%;
+  max-width: 100px;
+  max-height: 100px;
+}
+.r1col2 {
+  height: 20%;
+  width: 100%;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: lightgray; */
+  padding: 10px;
+  position: relative; /* Added for positioning */
+}
+
+.c2username {
+  font-size: 18px;
+  text-align: center;
+}
+
+.c2description {
+  margin-top: 10px;
+  font-size: 16px;
+  width: 100%;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.c2edit {
+  position: absolute;
+  bottom: 10px; /* Adjust the spacing from the bottom as needed */
+  right: 10px; /* Adjust the spacing from the right as needed */
+}
+.row2{
+  height: 10vh;
+  width: 500px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid lightgray;
+}
+.row3{
+  height: 500px;
+  width: 500px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: scroll;
+  justify-content: space-evenly;
+}
+.col1 ,.col2 ,.col3{
+  height: 150px;
+  width: 150px; 
+}
+.r1col2main{
+  display: flex;
+  flex-direction: column;
+  background-color: grey;
+  flex: 2;
+}

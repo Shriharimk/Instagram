@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title style="color: white;">Edit Profile</mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="edit" (ngSubmit)="onClick()">
+    <div class="container"> 
+      <div>
+        <label for="username"style="color: white;">Username: </label>
+        <input formControlName="username" id="username" type="text" placeholder="{{previousvalues.username}}">
+      </div>
+      <div>
+        <textarea formControlName="description" placeholder="{{previousvalues.description}}"></textarea>
+      </div>  
+    </div>   
+    <mat-card-actions >
+      <button mat-button>
+        <label for="photo-upload" ></label>
+        <input formControlName="image" placeholder="{{previousvalues.profileImage}}" #pic (change)="onPicSelection(pic)" id="photo-upload"type="file" accept="image/*" >
+        <mat-icon>insert_photo</mat-icon>
+      </button>
+      <button type="submit" mat-flat-button >Post</button>
+    </mat-card-actions>
+</form>
+</mat-card>

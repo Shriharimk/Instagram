@@ -1,0 +1,11 @@
+<!-- <app-header></app-header> -->
+<div [@routeFade]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
+<!-- <app-profile *ngIf="isUserLoggedIn()"></app-profile> -->
+
+<!-- <div [@routeFade]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+  <app-profile [show]="isUserLoggedIn()"></app-profile>
+</div> -->
+
