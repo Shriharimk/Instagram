@@ -23,10 +23,10 @@
       color: lightgrey;"
       >Forgot Password?</a>
 
-      <button mat-button [disabled]="!loginForm.valid" type="submit">Login</button>
+      <button appHoverEffect mat-button [disabled]="!loginForm.valid" type="submit">Login</button>
       <mat-label style="margin-top: 10px;">Or</mat-label>
       
-      <div class="google-btn">
+      <div appHoverEffect class="google-btn">
         <a (click)="signInWithGoogle()">
           <div class="google-icon-wrapper">
             <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>

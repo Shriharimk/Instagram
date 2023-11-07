@@ -8,12 +8,12 @@
     </div>
     
     <mat-card-actions align="end">
-      <button mat-button>
+      <button appHoverEffect mat-button>
         <label for="photo-upload" ></label>
         <input formControlName="image" #pic (change)="onPicSelection(pic)" id="photo-upload"type="file" accept="image/*">
         <mat-icon>insert_photo</mat-icon>
       </button>
-      <button type="submit" mat-flat-button >Post</button>
+      <button appHoverEffect type="submit" mat-flat-button >Post</button>
     </mat-card-actions>
 </form>
 </mat-card>

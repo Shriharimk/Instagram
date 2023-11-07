@@ -13,7 +13,7 @@
             placeholder="Find others!!  "
           />
           <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="navigateToProfile(user.userId)" *ngFor="let user of matchingUsers">
+            <button appHoverEffect mat-menu-item (click)="navigateToProfile(user.userId)" *ngFor="let user of matchingUsers">
               {{ user.username }}
             </button>
           </mat-menu>
@@ -69,7 +69,7 @@
       </div>
     </div>
     <div class="sb-container-logout">
-      <button mat-button color="warn" class="logout" type="submit" (click)="onLogout()">Logout</button>
+      <button appHoverEffect mat-button color="warn" class="logout" type="submit" (click)="onLogout()">Logout</button>
     </div>
   </div>
 </div>
@@ -120,7 +120,7 @@
       <div class="div2">
         <div style="font-size: 15px;" class="y">
           <!-- <button (click)="sortIncreasing()">Increasing Popularity</button> -->
-          <button mat-button style="color: lightgreen;" (click)="sortDecreasing()">
+          <button appHoverEffect  mat-button style="color: lightgreen;" (click)="sortDecreasing()">
             <mat-icon class="up" >trending_up</mat-icon>
             <span class="desc">Increasing Populartiy</span>
           </button>
@@ -128,7 +128,7 @@
           
         </div>
         <div style="font-size: 15px;" class="z">
-          <button mat-button (click)="sortIncreasing()" style="color: lightcoral;">
+          <button appHoverEffect mat-button (click)="sortIncreasing()" style="color: lightcoral;">
             <mat-icon class="down">trending_down</mat-icon>
             <span class="desc">Decreasing Populartiy</span>
           </button>

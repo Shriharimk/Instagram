@@ -40,6 +40,7 @@ import { CdkVirtualScrollViewport, ScrollingModule } from '@angular/cdk/scrollin
 import { UserSearchComponent } from './user-search/user-search.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatMenuModule } from '@angular/material/menu';
+import { HoverEffectDirective } from './hover-effect.directive';
 
 
 
@@ -58,6 +59,7 @@ import { MatMenuModule } from '@angular/material/menu';
     NewPostComponent,
     EditProfileComponent,
     UserSearchComponent,
+    HoverEffectDirective,
   ],
   imports: [
     BrowserModule,
