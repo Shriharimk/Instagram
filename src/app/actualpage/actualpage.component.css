@@ -245,6 +245,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  /* border: 1px solid lightgray; */
+  border-radius: 10px;
 }
 div{
   font-size: 15px;
@@ -258,6 +260,7 @@ div{
 }
 .button-descp{
   font-size: 15px;
+  text-align: left;
 }
 .sb img{
   height: 35px; /* Set a fixed height for all images */

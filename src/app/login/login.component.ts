@@ -17,12 +17,12 @@ export class LoginComponent {
   }
   authenticated=false;
   submitted=false;
-  private instaLogoImages: string[] = [
+  public instaLogoImages: string[] = [
     '../../assets/images/screenshot1.png',
     '../../assets/images/screenshot2.png',
     '../../assets/images/screenshot3.png',
   ];
-  private logoImageIndex = 0;
+  public logoImageIndex = 0;
   public currentLogo: string;
 
   constructor(private router: Router, private auth: AuthService, private el: ElementRef) {}
@@ -36,22 +36,10 @@ export class LoginComponent {
     setInterval(() => {
       this.logoImageIndex = (this.logoImageIndex + 1) % this.instaLogoImages.length;
       this.currentLogo = this.instaLogoImages[this.logoImageIndex];
-    }, 3000); // Change the image every 3 seconds (adjust as needed)
+    }, 3000);
   }
   onLoginSubmit() {
     this.submitted = true;
-    const userData = localStorage.getItem('user');
-  
-    // if (userData !== null) {
-    //   const storedUser = JSON.parse(userData);
-    //   const enteredEmail = this.user.email;
-    //   const enteredPassword = this.user.password;
-  
-    //   if (enteredEmail === storedUser.email && enteredPassword === storedUser.password) {
-    //     this.authenticated = true;
-    //     this.route('/actualpage');
-    //   }
-    //}
     this.auth.login(this.user.email,this.user.password);
     this.user.email='';
     this.user.password='';
@@ -72,4 +60,27 @@ export class LoginComponent {
   route(routePath: string) {
     this.router.navigate([routePath]);
   }
+
+  testmethod(msg : any): string{
+    return msg;
+  }
+
+  // calculate(a:number, b:number): [number, number]{
+  //   return a+b,a-b;
+  // }
+  public calculateSumAndDiff(a:number, b:number): [number, number] {
+    const sum = a+b;
+    const diff = a-b;
+    return [sum, diff]
+}
+  showresult(){
+    if(this.calculateSumAndDiff(10,40) > [40,50]){
+      return 'pass';
+    }
+    else{
+      return 'fail'
+    }
+
+  }
+  
 }
