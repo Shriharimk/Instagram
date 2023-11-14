@@ -48,15 +48,6 @@ export class LoginComponent {
   signInWithGoogle(){
     this.auth.googleSignIn();
   }
-  signInWithFaceBook(){
-    this.auth.facebookSignIn();
-  }
-  signInWithGithub(){
-    this.auth.githubSignIn();
-  }
-  signInWithTwitter(){
-    this.auth.twitterSignIn();
-  }
   route(routePath: string) {
     this.router.navigate([routePath]);
   }
@@ -78,7 +69,7 @@ export class LoginComponent {
       return 'pass';
     }
     else{
-      return 'fail'
+      return 'fail';
     }
 
   }
