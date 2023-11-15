@@ -8,17 +8,21 @@ import { ActualpageComponent } from './actualpage/actualpage.component';
 import { ForgotPasswordComponent} from './forgot-password/forgot-password.component'; 
 import { VerifyEmailComponent} from './verify-email/verify-email.component'; 
 import { ProfileComponent } from './profile/profile.component';
+import { authGuard } from './shared/auth.guard';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/landing', pathMatch: 'full' },
   { path: 'landing', component: LandingComponent, data: { animation: 'HomePage' } },
   { path: 'login', component: LoginComponent, data: { animation: 'LoginPage' }},
   { path: 'signup', component: SignupComponent, data: { animation: 'SignupPage' } },
-  { path: 'actualpage', component: ActualpageComponent, data: { animation: 'ActualPage' } },  
-  { path: 'forgot-password', component: ForgotPasswordComponent, data: { animation: 'ForgotPassword' } },  
-  { path: 'verify-email', component: VerifyEmailComponent, data: { animation: 'VerifyEmail' } },
-  { path: 'profile', component: ProfileComponent, data: { animation: 'Profile' } },
-  { path: 'profiles/:userId', component: ProfileComponent, data: { animation: 'Profile' } },
+  { path: 'actualpage', component: ActualpageComponent, data: { animation: 'ActualPage' } , canActivate:[authGuard]},  
+  { path: 'forgot-password', component: ForgotPasswordComponent, data: { animation: 'ForgotPassword' } , canActivate:[authGuard]},  
+  { path: 'verify-email', component: VerifyEmailComponent, data: { animation: 'VerifyEmail' } , canActivate:[authGuard]},
+  { path: 'profile', component: ProfileComponent, data: { animation: 'Profile' } ,canActivate:[authGuard] },
+  { path: 'profiles/:userId', component: ProfileComponent, data: { animation: 'Profile' } ,canActivate:[authGuard]},
+  { path: '**', component: NotFoundComponent, },
+
 
   // Add other routes as needed
 ];

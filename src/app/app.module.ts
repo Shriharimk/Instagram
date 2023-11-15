@@ -41,6 +41,7 @@ import { UserSearchComponent } from './user-search/user-search.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatMenuModule } from '@angular/material/menu';
 import { HoverEffectDirective } from './hover-effect.directive';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -60,6 +61,7 @@ import { HoverEffectDirective } from './hover-effect.directive';
     EditProfileComponent,
     UserSearchComponent,
     HoverEffectDirective,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

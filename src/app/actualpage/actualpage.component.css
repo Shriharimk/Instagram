@@ -64,7 +64,6 @@
   align-items: center;
   justify-content: space-around;
   height: 60%;
-  margin-left: 0px;
   padding: 8px;
 
 }
@@ -99,13 +98,28 @@
   align-items: center;
   margin-left: 16px;
   margin-bottom: 2px;
-
+}
+.username-icon {
+  height: 35px; /* Set the desired height */
+  width: 35px;  /* Set the desired width */
+  border-radius: 50%; /* To make the image circular */
+  object-fit: cover; /* To make sure the image covers the entire area */
+  margin-right: 5px;
 }
 .nwpost-icon img,
 .like-icon img,
 .comment-icon img {
   max-width: 100%; /* Makes the image responsive to its parent container */
   max-height: 100%; /* Makes the image responsive to its parent container */
+}
+.post-timestamp{
+  position: absolute;
+  height: 10px;
+  width: 200px;
+  right: 420px;
+  font-size: 10px;
+  color: grey;
+
 }
 /* .new-post {
   position: fixed;
@@ -324,7 +338,7 @@ div{
 .right-float{
   height: 100px;
   width: 250px;
-  top: 100px;
+  top: 150px;
   right: 200px;
   position: fixed;
   border-radius: 10px;
@@ -366,4 +380,5 @@ div{
   justify-content: space-evenly;
   margin-right: 5px;
 }
+
 

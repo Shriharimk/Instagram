@@ -55,23 +55,5 @@ export class LoginComponent {
   testmethod(msg : any): string{
     return msg;
   }
-
-  // calculate(a:number, b:number): [number, number]{
-  //   return a+b,a-b;
-  // }
-  public calculateSumAndDiff(a:number, b:number): [number, number] {
-    const sum = a+b;
-    const diff = a-b;
-    return [sum, diff]
-}
-  showresult(){
-    if(this.calculateSumAndDiff(10,40) > [40,50]){
-      return 'pass';
-    }
-    else{
-      return 'fail';
-    }
-
-  }
   
 }

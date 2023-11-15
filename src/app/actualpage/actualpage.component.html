@@ -79,7 +79,15 @@
     <div *ngFor="let post of posts" class="post">
       <div class="container">
         <div class="column">
-          <div class="username"><b>{{ post.username }}</b></div>
+          <div class="username" (click)="navigateToProfile(post.userId)" style="cursor: pointer;">
+            <div class="username-col1">
+              <img class="username-icon" [src]="image(post.userId)" alt="" >
+            </div>
+            <div class="username-col2">
+              <b>{{ post.username }}</b>
+            </div>
+            
+          </div>
           
           <div class="post-image">
             <img class="post-img"  src="{{post.path}}" alt="Post Image">
@@ -105,11 +113,18 @@
               </div>
               <div class="comment-count">1900</div>
             </div>
+            <div class="comment">
+              <div class="comment-icon">
+                <img src="../../assets/send.png" alt="send Icon">
+              </div>
+              <div class="comment-count"></div>
+            </div>
           </div>
           <div class="description"><b>{{ post.username }}</b> {{ post.description }}</div>
         </div>
       </div>
-    </div>    
+      <div class="post-timestamp">{{ post.timestamp | date:"MMM dd, yyyy 'at' hh:mm a" }}</div> 
+    </div>   
   </div>
   <div class="right-float">
     <div class="div1">
@@ -131,10 +146,15 @@
           <button appHoverEffect mat-button (click)="sortIncreasing()" style="color: lightcoral;">
             <mat-icon class="down">trending_down</mat-icon>
             <span class="desc">Decreasing Populartiy</span>
-          </button>
-                  
+          </button>                  
         </div>
-
+      </div>
+      <div class="div3">
+          <div class="desc" style="color: grey;">
+          About . Help . Press . API . Jobs
+          Privacy . Terms . Locations . 
+          2023 INSTAGRAM
+        </div>
       </div>
   </div>
   <!-- <div class="main-container">

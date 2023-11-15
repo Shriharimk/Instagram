@@ -15,6 +15,7 @@ export class AuthService {
   userId:string= '';
   username:string= '';
   user : User = new User();
+  loginStatus: boolean = false;
 
 
   constructor(private fireauth: AngularFireAuth, 
@@ -28,8 +29,10 @@ export class AuthService {
       localStorage.setItem('token','true')
       if(res.user.emailVerified==true){
         this.router.navigate(['/actualpage']);
+        this.loginStatus=true;
       }else{
         this.router.navigate(['/actualpage']);
+        this.loginStatus=true;
 
        // this.router.navigate(['verify-email'])
       }
@@ -89,6 +92,7 @@ export class AuthService {
     this.fireauth.signOut().then(()=>{
       localStorage.removeItem('token')
       this.router.navigate(['/landing'])
+      this.loginStatus=false;
     },err =>{
       alert(err.message);
     })

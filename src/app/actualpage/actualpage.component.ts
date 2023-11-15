@@ -33,6 +33,7 @@ export class ActualpageComponent {
   postCount: number = 0; 
   userId: string= '';
   profileUser : User = new User();
+  postUser: User = new User();
   currentLoopUser : User = new User();
   matchingUsers: any[] = []; 
   usersList : User[] =[];
@@ -151,27 +152,17 @@ export class ActualpageComponent {
 
   getPosts() {
     this.postService.getAllPosts().pipe(map((response: any) => {
-      const posts: Posts[] = [];
-  
+      const posts: Posts[] = [];  
       for (const key in response) {
         if (response.hasOwnProperty(key)) {
           const post = response[key]; // Create a new post object
           post.postId = key;
-          // console.log('new updated post instance within for loop for key :'+ key)
-          // console.log(post)
           posts.push(post); // Push the new post object to the array
         }
       }
-      // console.log('new updated local posts list: ')
-      // console.log(posts)
       return posts;
     })).subscribe((data) => {
-      // console.log('response data obj in getPosts(): ')
-      // console.log(data)
       this.posts = data;
-      // console.log('response assigned to global posts list : '+this.posts)
-      // console.log(this.posts)
-      // console.log('sorting in dO')
       this.sorting();
     });
   }
@@ -186,11 +177,6 @@ export class ActualpageComponent {
     this.posts.sort((a, b) => b.timestamp - a.timestamp);
     // console.log(this.posts);
   }
-  showUserSearchModal = false; 
-//   openUserSearch() {
-//     console.log('clicked')
-//   this.showUserSearchModal = true;
-// }
   
   getPostDetails(postId: string){
     this.postService.getPost(postId).subscribe(res =>{
@@ -198,6 +184,18 @@ export class ActualpageComponent {
     }, err=>{
       alert('Something went wrong. Error: '+err)
     })
+  }
+
+  image(userId: string){
+    console.log('userId for the post received: ')
+    console.log(userId);
+    let profileImage: string = '';
+    for(var user of this.usersList ){
+      if(user.userId==userId){
+        profileImage = user.profileImage
+      }
+    }
+    return profileImage;
   }
   // likePost(post : Posts){
   //   post.likes++;

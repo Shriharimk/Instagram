@@ -89,5 +89,27 @@ describe('PostService', () => {
       expect(req.request.method).toBe('PUT');
       req.flush({});
 
+    });
+
+    it('should get posts based on postId', () =>{
+      const mockPost:Posts = {
+        userId: '',
+        path: '',
+        description: '',
+        likes: 0,
+        comments: '',
+        comment_count: 0,
+        interactions: 0,
+        timestamp: 0,
+        postId: 'abc',
+        username: ''
+      };
+      service.getPost('abc').subscribe((response) =>{
+        expect(response).toBeDefined();
+      });
+      const req = testingController.expectOne(`https://projectdemo-9f2d5-default-rtdb.firebaseio.com/posts/${mockPost.postId}.json`);      
+      expect(req.request.method).toBe('GET');
+      expect(req.request.responseType).toEqual('json');
+      req.flush({});
     })
 });
