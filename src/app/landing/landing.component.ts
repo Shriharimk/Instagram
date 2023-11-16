@@ -13,9 +13,4 @@ export class LandingComponent {
   onGetStartedClick(){
     this.router.navigate(['/login']);
   }
-
-  
-  route(routePath: string) {
-    this.router.navigate([routePath]);
-  }
 }

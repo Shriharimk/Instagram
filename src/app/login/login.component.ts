@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
 
@@ -50,10 +50,5 @@ export class LoginComponent {
   }
   route(routePath: string) {
     this.router.navigate([routePath]);
-  }
-
-  testmethod(msg : any): string{
-    return msg;
-  }
-  
+  }  
 }

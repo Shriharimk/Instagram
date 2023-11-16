@@ -4,30 +4,22 @@
     <img class="insta-logo" src="assets/images/instagram-logo.png"  alt="Instagram" >
   </div>
   <div class="middle-sec">        
-          <input
-            mat-icon-button [matMenuTriggerFor]="menu"
-            class="searchbox"
-            type="text"
-            [(ngModel)]="searchItem"
-            (input)="onSearchInputChange(searchItem)"
-            placeholder="Find others!!  "
-          />
-          <mat-menu #menu="matMenu">
-            <button appHoverEffect mat-menu-item (click)="navigateToProfile(user.userId)" *ngFor="let user of matchingUsers">
-              {{ user.username }}
-            </button>
-          </mat-menu>
-          <!-- <div class="dropdown" *ngIf="showUserSearchPopup">
-            <ul>
-              <li *ngFor="let user of matchingUsers" (click)="selectUser(user)">
-                {{ user.username }}
-              </li>
-            </ul>
-          </div> -->
+    <input
+      mat-icon-button [matMenuTriggerFor]="menu"
+      class="searchbox"
+      type="text"
+      [(ngModel)]="searchItem"
+      (input)="onSearchInputChange()"
+      placeholder="Find others!!  "
+      />
+    <mat-menu #menu="matMenu">
+      <button appHoverEffect mat-menu-item (click)="navigateToProfile(user.userId)" *ngFor="let user of matchingUsers">
+        {{ user.username }}
+      </button>
+    </mat-menu>          
   </div>
   <div class="right-sec"></div>
-</div>
-  
+</div>  
   
 <!-- side-navbar-->
 <div class="sidebar">
@@ -37,30 +29,24 @@
         <img   class="home" src="../../assets/home.png">
         <div   class="button-descp">Home</div>
       </div>
-      <!-- <div class="sb" (click)="openUserSearch()" style="cursor: pointer;" title="Search">
-        <img style="cursor: pointer;" class="explore" src="../../assets/search.png">
-        <div style="cursor: pointer;" class="button-descp">
-          <button mat-button >Search</button>
-        </div>
-      </div> -->
       <div class="sb" title="New Post!" (click)="newPost()">
         <a style="cursor: pointer;" title="New Post" ><img class="nwpost-icon" src="../../assets/more.png" alt="NewPost"></a>
         <div class="button-descp">Create</div>
       </div>
-      <div class="sb" title="New Post!" >
-        <a style="cursor: pointer;" title="New Post" ><img class="nwpost-icon" src="../../assets/video_7264012.png" alt="NewPost"></a>
+      <div class="sb" title="Reels!" >
+        <a style="cursor: pointer;" title="Reels" ><img class="nwpost-icon" src="../../assets/video_7264012.png" alt="NewPost"></a>
         <div class="button-descp">Reels</div>
       </div>
-      <div class="sb" title="New Post!" >
-        <a style="cursor: pointer;" title="New Post" ><img class="nwpost-icon" src="../../assets/compass_3405524.png" alt="NewPost"></a>
+      <div class="sb" title="Explore!" >
+        <a style="cursor: pointer;" title="Explore" ><img class="nwpost-icon" src="../../assets/compass_3405524.png" alt="NewPost"></a>
         <div class="button-descp">Explore</div>
       </div>
-      <div class="sb" title="New Post!" >
-        <a style="cursor: pointer;" title="New Post" ><img class="nwpost-icon" src="../../assets/messenger_3781712.png" alt="NewPost"></a>
+      <div class="sb" title="Messages!" >
+        <a style="cursor: pointer;" title="Messages" ><img class="nwpost-icon" src="../../assets/messenger_3781712.png" alt="NewPost"></a>
         <div class="button-descp">Msgs</div>
       </div>
-      <div class="sb" title="New Post!" >
-        <a style="cursor: pointer;" title="New Post" ><img class="nwpost-icon" src="../../assets/notification.png" alt="NewPost"></a>
+      <div class="sb" title="Alerts!" >
+        <a style="cursor: pointer;" title="Alerts" ><img class="nwpost-icon" src="../../assets/notification.png" alt="NewPost"></a>
         <div class="button-descp">Alerts</div>
       </div>
       <div class="sb" title="View Profile" (click)="navigateToProfile(userId)">
@@ -81,22 +67,19 @@
         <div class="column">
           <div class="username" (click)="navigateToProfile(post.userId)" style="cursor: pointer;">
             <div class="username-col1">
-              <img class="username-icon" [src]="image(post.userId)" alt="" >
+              <img class="username-icon" [src]="userImageMap[post.userId]" alt="" >
             </div>
             <div class="username-col2">
               <b>{{ post.username }}</b>
-            </div>
-            
-          </div>
-          
+            </div>            
+          </div>          
           <div class="post-image">
             <img class="post-img"  src="{{post.path}}" alt="Post Image">
           </div>
           <div class="like-comment">
-            <a (click)="likePost(post);" style="cursor: pointer;" title="Like!">
+            <div (click)="likePost(post);" style="cursor: pointer;" title="Like!">
               <div class="like">
                 <div class="like-icon">
-                  <!-- <img src="../../assets/heart.png" alt="Like Icon"> -->
                   <span *ngIf="liked" class="material-icons">
                     favorite
                     </span>
@@ -106,12 +89,12 @@
                 </div>
                 <div class="like-count">{{ post.likes }}</div>
               </div>
-            </a>
+            </div>
             <div class="comment">
               <div class="comment-icon">
                 <img src="../../assets/chat.png" alt="Comment Icon">
               </div>
-              <div class="comment-count">1900</div>
+              <div class="comment-count">75</div>
             </div>
             <div class="comment">
               <div class="comment-icon">
@@ -120,72 +103,48 @@
               <div class="comment-count"></div>
             </div>
           </div>
-          <div class="description"><b>{{ post.username }}</b> {{ post.description }}</div>
+          <div class="description">
+            <b>{{ post.username }}</b> {{ post.description }}
+          </div>
         </div>
-      </div>
-      <div class="post-timestamp">{{ post.timestamp | date:"MMM dd, yyyy 'at' hh:mm a" }}</div> 
+      </div>      
+      <div class="post-timestamp">
+        {{ post.timestamp | date:"MMM dd, yyyy 'at' hh:mm a" }}
+      </div> 
     </div>   
   </div>
   <div class="right-float">
     <div class="div1">
       <div style="font-size: 20px;" class="sb-right" title="View Profile" (click)="navigateToProfile(userId)">
-        <a style="cursor: pointer;"><img class="user-icon" src="{{profileUser.profileImage}}" alt=""></a>
-        <div style="cursor: pointer;" class="button-descp">{{ profileUser.username }}</div>
-      </div>
-      <div class="div2">
-        <div style="font-size: 15px;" class="y">
-          <!-- <button (click)="sortIncreasing()">Increasing Popularity</button> -->
-          <button appHoverEffect  mat-button style="color: lightgreen;" (click)="sortDecreasing()">
-            <mat-icon class="up" >trending_up</mat-icon>
-            <span class="desc">Increasing Populartiy</span>
-          </button>
-          
-          
+        <div style="cursor: pointer;">
+          <img class="user-icon" src="{{profileUser.profileImage}}" alt="">
         </div>
-        <div style="font-size: 15px;" class="z">
-          <button appHoverEffect mat-button (click)="sortIncreasing()" style="color: lightcoral;">
-            <mat-icon class="down">trending_down</mat-icon>
-            <span class="desc">Decreasing Populartiy</span>
-          </button>                  
+        <div style="cursor: pointer;" class="button-descp">
+          {{ profileUser.username }}
         </div>
       </div>
-      <div class="div3">
-          <div class="desc" style="color: grey;">
-          About . Help . Press . API . Jobs
-          Privacy . Terms . Locations . 
-          2023 INSTAGRAM
-        </div>
+    </div>
+    <div class="div2">
+      <div style="font-size: 15px;" class="y">
+        <!-- <button (click)="sortIncreasing()">Increasing Popularity</button> -->
+        <button appHoverEffect  mat-button style="color: lightgreen;" (click)="sortDecreasing()">
+          <mat-icon class="up" >trending_up</mat-icon>
+          <span class="desc">Increasing Populartiy</span>
+        </button>      
       </div>
+      <div style="font-size: 15px;" class="z">
+        <button appHoverEffect mat-button (click)="sortIncreasing()" style="color: lightcoral;">
+          <mat-icon class="down">trending_down</mat-icon>
+          <span class="desc">Decreasing Populartiy</span>
+        </button>                  
+      </div>
+    </div>
+    <div class="div3">
+      <div class="desc" style="color: grey;">
+        About . Help . Press . API . Jobs
+        Privacy . Terms . Locations . 
+        2023 INSTAGRAM
+      </div>
+    </div>
   </div>
-  <!-- <div class="main-container">
-    <cdk-virtual-scroll-viewport itemSize="50" class="virtual-scroll-container">
-      <div *cdkVirtualFor="let post of posts" class="post">
-        <div class="container">
-          <div class="column">
-            <div class="username"><b>{{ post.username }}</b></div>
-            <div class="post-image">
-              <img class="post-img" src="{{ post.path }}" alt="Post Image">
-            </div>
-            <div class="like-comment">
-              <a (click)="likePost(post)" style="cursor: pointer;" title="Like!">
-                <div class="like">
-                  <div class="like-icon">
-                    <img src="../../assets/heart.png" alt="Like Icon">
-                  </div>
-                  <div class="like-count">{{ post.likes }}</div>
-                </div>
-              </a>
-              <div class="comment">
-                <div class="comment-icon">
-                  <img src="../../assets/chat.png" alt="Comment Icon">
-                </div>
-                <div class="comment-count">1900</div>
-              </div>
-            </div>
-            <div class="description"><b>{{ post.username }}</b> {{ post.description }}</div>
-          </div>
-        </div>
-      </div>
-    </cdk-virtual-scroll-viewport>
-  </div>
- -->
+</div>

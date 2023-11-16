@@ -1,11 +1,12 @@
 export const environment = {
   firebase: {
-    projectId: 'projectdemo-9f2d5',
-    appId: '1:124296296553:web:329976cdd70e93431c0af8',
-    storageBucket: 'projectdemo-9f2d5.appspot.com',
-    apiKey: 'AIzaSyCkYa9SvH__Zp6nyztDmH_Ci_gjMo5bq2k',
-    authDomain: 'projectdemo-9f2d5.firebaseapp.com',
-    messagingSenderId: '124296296553',
-    measurementId: 'G-RQ8S2PL6NT',
+    projectId: 'instagram-83b4b',
+    appId: '1:324708535527:web:d9b7db4eb290aa15c46642',
+    databaseURL: 'https://instagram-83b4b-default-rtdb.firebaseio.com',
+    storageBucket: 'instagram-83b4b.appspot.com',
+    apiKey: 'AIzaSyDOdTCx3kMs77oXnnBnjjmgFUpDKZFdQEk',
+    authDomain: 'instagram-83b4b.firebaseapp.com',
+    messagingSenderId: '324708535527',
+    measurementId: 'G-PXKT7D1SPY',
   },
 };

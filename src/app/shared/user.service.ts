@@ -7,17 +7,24 @@ import { User } from '../class/user';
   providedIn: 'root',
 })
 export class UserService {
-  private baseUrl = 'https://projectdemo-9f2d5-default-rtdb.firebaseio.com';
-
+  private baseUrl = 'https://instagram-83b4b-default-rtdb.firebaseio.com/';
+  
   constructor(private http: HttpClient) {}
 
   updateUsers(updatesUserList: User[]){
     console.log('updated Userlist recieved in user service')
-    console.log(updatesUserList)
     return this.http.put(`${this.baseUrl}/users.json`,updatesUserList)
   }
 
   getUsers(): Observable<User[]> {
+    console.log('service call to getUsers ')
     return this.http.get<User[]>(`${this.baseUrl}/users.json`);
+  }
+
+  getDetails(uid: string)
+  {
+    console.log("user id received in user service: ")
+    console.log(uid);
+    return this.http.get(this.baseUrl+"users/"+uid+"/.json")    
   }
 }

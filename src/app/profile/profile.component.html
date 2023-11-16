@@ -44,8 +44,8 @@
       <div class="c2description">
         {{user.description}}
       </div>
-      <div class="c2edit">
-        <button appHoverEffect class="button-descp" (click)="edit()">
+      <div  class="c2edit">
+        <button [disabled]="!check" appHoverEffect class="button-descp" (click)="edit()">
           <img src="../../assets/edit.png">
         </button>
       </div>

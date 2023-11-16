@@ -27,18 +27,10 @@ export class AuthService {
   login(email: string, password: string){
     this.fireauth.signInWithEmailAndPassword(email, password).then(res => {
       localStorage.setItem('token','true')
-      if(res.user.emailVerified==true){
-        this.router.navigate(['/actualpage']);
-        this.loginStatus=true;
-      }else{
-        this.router.navigate(['/actualpage']);
-        this.loginStatus=true;
-
-       // this.router.navigate(['verify-email'])
-      }
+      this.router.navigate(['/actualpage']);
+      this.loginStatus=true;
       this.userId = res.user.uid;
       this.authenticated=true;
-      console.log(this.authenticated)
     },err =>{
       const errorCode = err.code;
       const errorMessage = err.message;
@@ -50,6 +42,7 @@ export class AuthService {
         // Handle other error cases
         alert('An error occurred: ' + errorMessage);
       }
+      this.loginStatus=false;
       this.router.navigate(['/login']);
       this.authenticated=false;
     });
@@ -59,27 +52,25 @@ export class AuthService {
   signup(email: string, password: string,user:User){
     this.fireauth.createUserWithEmailAndPassword(email,password).then(res =>{
     alert('Successfully Signed Up!!');
-    this.username=res.user.displayName;
-    console.log(this.username+" from signUp in authservice")
-    
-    let uid= res.user.uid;//getting the userId from the response
-    this.storeUserDetails(uid,user);//storing the userdata from the signup page into the realtime database
-    //this.SendVerficationEmail(res.user)
+    this.username=res.user.displayName;    
+    let uid= res.user.uid;
+    //store in users collection in database along with storin details in authentication
+    this.storeUserDetails(uid,user);
     this.router.navigate(['/login'])
     },err =>{
-      alert('Something went wrong');
+      alert('Something went wrong :(. Try again!');
       this.router.navigate(['/signup'])
     });
   }
 
 
-  //Storing user Deatils in the database
+  //Storing user Deatils in the database as a seperate collection
   storeUserDetails(uid:string ,user:User)
   {
     const path = `users/${uid}`;
     this.database.object(path).set(user).then(()=>
     {
-      alert("saved");
+      console.log("saved");
     })
     .catch((err) =>
     {
@@ -103,21 +94,12 @@ export class AuthService {
   //forgot-password
   forgotPassword(email:string){
     this.fireauth.sendPasswordResetEmail(email).then(()=>{
-      this.router.navigate(['/verify-email'])
+      // this.router.navigate(['/verify-email'])
     },err=>{
       alert('Something went wrong')
     });
   }
 
-  //email verification 
-  // sendEmailForVerification(user: any ){
-  //   user.sendEmailForVerification().then((res: any)=>{
-  //     this.router.navigate(['/verify-email'])
-  //   }, (err: any)=>{
-  //     alert('Something Went Wrong. Couldnt send the email. Try again later.')
-  //     this.router.navigate(['/forgot-password'])
-  //   })
-  // }
   SendVerficationEmail(user: any){
 
     this.fireauth.currentUser.then(u => u?.sendEmailVerification())
@@ -131,61 +113,12 @@ export class AuthService {
 
   //signinwithgoogle
   googleSignIn(){
-    return this.fireauth.signInWithPopup(new GoogleAuthProvider).then(res =>{
-      
+    return this.fireauth.signInWithPopup(new GoogleAuthProvider).then(res =>{      
       this.router.navigate(['/','actualpage'])
       localStorage.setItem('token',JSON.stringify(res.user?.uid))
-      console.log(res)
     }, err =>{
       alert(err.message);
     })
   }
-
-  //signinwithfacebook
-  facebookSignIn(){
-    return this.fireauth.signInWithPopup(new FacebookAuthProvider).then(res =>{
-      
-      this.router.navigate(['/','actualpage'])
-      localStorage.setItem('token',JSON.stringify(res.user?.uid))
-      console.log(res)
-    }, err =>{
-      alert(err.message);
-    })
-  }
-
-  githubSignIn(){
-    return this.fireauth.signInWithPopup(new GithubAuthProvider).then(res =>{
-      
-      this.router.navigate(['/','actualpage'])
-      localStorage.setItem('token',JSON.stringify(res.user?.uid))
-      console.log(res)
-    }, err =>{
-      alert(err.message);
-    })
-  }
-
-  twitterSignIn(){
-    return this.fireauth.signInWithPopup(new TwitterAuthProvider).then(res =>{
-      
-      this.router.navigate(['/','actualpage'])
-      localStorage.setItem('token',JSON.stringify(res.user?.uid))
-      console.log(res)
-    }, err =>{
-      alert(err.message);
-    })
-  }
-  
-
-
-  getDetails(uid: string)
-  {
-    // const URL = "n"
-
-    console.log(URL)
-    console.log(uid+" from auth service")
-    return this.http.get("https://projectdemo-9f2d5-default-rtdb.firebaseio.com/users/"+uid+"/.json")
-  }
-
-
 
 }
