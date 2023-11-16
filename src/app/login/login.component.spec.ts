@@ -57,13 +57,13 @@ describe('LoginComponent', () => {
   });
   
   it('should reset form fields and call AuthService.login', () => {
-    component.user.email = 'test12@test.com';
+    component.user.email = 'test1@test.com';
     component.user.password = '123456';
     const loginSpy = spyOn(authService, 'login').and.callThrough();
     component.onLoginSubmit();
     expect(component.user.email).toBe('');
     expect(component.user.password).toBe('');
-    expect(loginSpy).toHaveBeenCalledWith('test12@test.com', '123456');
+    expect(loginSpy).toHaveBeenCalledWith('test1@test.com', '123456');
   });
 
   it('should call signInWithGoogle()', () => {
@@ -80,7 +80,7 @@ describe('LoginComponent', () => {
   });
 
   it('should set values from Form', ()=>{
-    const email="test12@test.com";
+    const email="test1@test.com";
     const password='123456';
 
     component.user.email=email;
@@ -92,9 +92,6 @@ describe('LoginComponent', () => {
     expect(component.user.password).toBe(password);
   });
 
-  it('Show message', () => {
-    expect(component.testmethod('Hello')).toBe('Hello');
-  });
 
   it('toBe and toEqual test case', () =>{
     var a = 1;

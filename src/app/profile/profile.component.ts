@@ -51,18 +51,34 @@ export class ProfileComponent implements OnInit {
       
     })
 
-    //getting id from url
+    // //getting id from url
+    // this.Route.params.subscribe(params => {
+    //   this.rUid = params['userId'];
+    //   this.userId=this.rUid; 
+    //   console.log("paramter userId: " + this.userId)
+    //   
+    // }, () =>{});
+
+
+
     this.Route.params.subscribe(params => {
       this.rUid = params['userId'];
-      this.userId=this.rUid; 
-      console.log("paramter userId: " + this.userId)
-      if(this.userId===this.authUid){ 
-        this.check=true;
-      }
-      else{
-        this.check=false;
-      }
-    }, () =>{});
+      console.log('parameter extracted: ')
+      console.log(this.rUid);
+      this.userId=this.rUid;
+      console.log('local userId in profile service: '+this.userId)
+      // this.loadProduct();
+      // this.cartService.getCartObservable().subscribe(items => {
+      //   this.cartCount = items.length;
+      // });
+    }, err =>{});
+    if(this.userId===this.authUid){ 
+          this.check=true;
+        }
+        else{
+          this.check=false;
+        }
+
 
     this.getUserDetails();
     this.profileService.updateProfile.subscribe(()=>{
@@ -78,7 +94,6 @@ export class ProfileComponent implements OnInit {
   getUserDetails()
   {
     console.log("getUserDetails before response: "+this.userId)
-    alert("changed service");
       this.userService.getDetails(this.userId).subscribe(res =>{
       this.user=Object(res);
       this.username=this.user.username;

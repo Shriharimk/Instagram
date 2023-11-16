@@ -50,7 +50,6 @@ export class AppComponent{
     loggedin=true;
   }
   isUserLoggedIn() {
-    console.log(this.auth.authenticated+' from the from isUserLoggedIn')
     return this.auth.authenticated; 
   }
 }

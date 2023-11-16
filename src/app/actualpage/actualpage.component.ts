@@ -36,6 +36,7 @@ export class ActualpageComponent {
   matchingUsers: any[] = []; 
   usersList : User[] =[];
   userImageMap: { [userId: string]: string } = {};
+  userNameMap: { [userId:string]: string} = {};
 
 
   constructor(
@@ -84,6 +85,7 @@ export class ActualpageComponent {
         this.usersList = data;
         this.usersList.forEach(user => {
         this.userImageMap[user.userId] = user.profileImage;
+        this.userNameMap[user.userId] = user.username;
         });
         console.log('new users');
         console.log(this.usersList);

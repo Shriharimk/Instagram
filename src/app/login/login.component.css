@@ -62,16 +62,11 @@ button:hover {
 }
 .logo{
   margin-bottom: 20px;
-  padding-right: 20px; /* Add spacing between the logo and buttons */
+  padding-right: 20px; 
 }
 .insta-logo{
   width: 100%;
 }
-
-/*sign in with google
-$white: #fff;
-$google-blue: #4285f4;
-$button-active-blue: #1669F2;*/
 
 .google-btn {
   margin-top: 10px;

@@ -24,7 +24,7 @@ export class EditProfileComponent implements OnInit {
     private profileService: ProfileService,
     private userService: UserService,
     private formBuilder: FormBuilder,
-    public dialog: MatDialog // Inject MatDialog
+    public dialog: MatDialog
   ) {
     this.edit = this.formBuilder.group({
       username: [''],
@@ -42,9 +42,13 @@ export class EditProfileComponent implements OnInit {
   }
 
   getUserDetails() {
+    console.log(this.userId);
+
     this.userService.getDetails(this.userId).subscribe((res) => {
       this.user = Object(res);
       this.previousvalues = Object(res);
+    }, err =>{
+      console.log("something went wrong");
     });
   }
 
@@ -83,7 +87,7 @@ export class EditProfileComponent implements OnInit {
       this.user.profileImage = imageValue;
     }
     
-    this.profileService.updateUserProfile(this.userId, this.user).subscribe((data) => {
+    this.profileService.updateUserProfile(this.auth.userId, this.user).subscribe((data) => {
       alert('Profile updated successfully');
       this.profileService.updateProfile.emit();
     }, (err) => {

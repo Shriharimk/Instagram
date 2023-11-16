@@ -41,9 +41,10 @@ describe('HoverEffectDirective', () => {
 
     // Simulate mouseenter event
     const event = new MouseEvent('mouseenter');
+    //triggers a mouse enter event
     debugElement.triggerEventHandler('mouseenter', event);
-    fixture.detectChanges(); // Update the view
-
+    fixture.detectChanges(); // manually triggering detect change
+    //retrieving the current value for scale
     const transformedValue = element.style.transform;
     expect(transformedValue).toContain('scale(1.1)');
   });

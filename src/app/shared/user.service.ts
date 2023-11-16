@@ -8,6 +8,7 @@ import { User } from '../class/user';
 })
 export class UserService {
   private baseUrl = 'https://instagram-83b4b-default-rtdb.firebaseio.com/';
+  tempUid: string;
   
   constructor(private http: HttpClient) {}
 

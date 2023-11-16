@@ -40,25 +40,11 @@ export class SignupComponent implements OnInit {
   }
   passwordsMatch(control: FormControl) {
     console.log('control value: '+control.value)
-    //console.log(passwordControl+"fdfgfghfhgf")
-    // const confirmPasswordControl = control.get('repassword');
-    // console.log(confirmPasswordControl)
-
-    // if (passwordControl && confirmPasswordControl) {
-    //   const password = passwordControl.value;
-    //   const confirmPassword = confirmPasswordControl.value;
-
-    //   if (password !== confirmPassword) {
-    //     confirmPasswordControl.setErrors({ passwordsMatch: true });
-    //   } else {
-    //     confirmPasswordControl.setErrors(null);
-    //   }
-    // }
     if(this.password!=control.value)
       return {passwordsMatch:true}
     else  return null
   }
-   
+    
 
   onSubmit()
   {
@@ -77,27 +63,9 @@ export class SignupComponent implements OnInit {
           this.user.email = this.signupForm.get('email')?.value,
           this.user.description = null,
           this.user.profileImage = "",
-
-          // password: this.signupForm.get('password')?.value,
-          // repassword: this.signupForm.get('repassword')?.value
-        //store password to local varaible
-        this.password=this.signupForm.get('password')?.value;
-    
-      //   localStorage.setItem('user', JSON.stringify(user));
+          this.password=this.signupForm.get('password')?.value;
        }
-      // const userData = localStorage.getItem('user');
-
-      // if (userData !== null) {
-      //   const storedUser = JSON.parse(userData);
-      //   // Rest of your code
-
-      // }
-      // console.log(this.signupForm);
-
-      // //move to login page
-      // this.router.navigateByUrl('/login');
       console.log(this.user);
-      //this.auth.signup(this.signupForm.get('email')?.value,this.signupForm.get('password')?.value)
     }
   
   nospaceAllowed(control: FormControl){
@@ -114,6 +82,7 @@ export class SignupComponent implements OnInit {
         return 'weak';
       }
   
+      //check pattern characters
       const hasUpperCase = /[A-Z]/.test(password);
       const hasLowerCase = /[a-z]/.test(password);
       const hasDigit = /[0-9]/.test(password);

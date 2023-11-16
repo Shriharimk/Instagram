@@ -45,7 +45,7 @@
         {{user.description}}
       </div>
       <div  class="c2edit">
-        <button [disabled]="!check" appHoverEffect class="button-descp" (click)="edit()">
+        <button *ngIf="check" [disabled]="!check" appHoverEffect class="button-descp" (click)="edit()">
           <img src="../../assets/edit.png">
         </button>
       </div>

@@ -324,8 +324,9 @@ div{
 }
 .profile-image {
   border-radius: 50%;
-  max-width: 100px;
-  max-height: 100px;
+  width: 100px;
+  height: 100px;
+  object-fit: fill;
 }
 .r1col2 {
   height: 20%;

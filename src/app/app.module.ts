@@ -35,7 +35,6 @@ import { ProfileService } from './shared/profile.service';
 import { NewPostComponent } from './new-post/new-post.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CdkVirtualScrollViewport, ScrollingModule } from '@angular/cdk/scrolling';
-import { UserSearchComponent } from './user-search/user-search.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatMenuModule } from '@angular/material/menu';
 import { HoverEffectDirective } from './hover-effect.directive';
@@ -58,7 +57,6 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     ProfileComponent,
     NewPostComponent,
     EditProfileComponent,
-    UserSearchComponent,
     HoverEffectDirective,
     NotFoundComponent,
   ],

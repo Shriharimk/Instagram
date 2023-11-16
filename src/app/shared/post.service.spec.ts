@@ -7,6 +7,7 @@ import { Posts } from '../class/posts';
 describe('PostService', () => {
   let service: PostService;
   let testingController : HttpTestingController;
+  let baseUrl :string = 'https://instagram-83b4b-default-rtdb.firebaseio.com';
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -33,7 +34,7 @@ describe('PostService', () => {
       expect(result).toEqual(mockPost);
     });
 
-      const req = testingController.expectOne('https://projectdemo-9f2d5-default-rtdb.firebaseio.com/posts.json');
+      const req = testingController.expectOne(baseUrl+"/posts.json");
       console.log(req);
       expect(req.request.method).toBe('GET');
       expect(req.request.responseType).toEqual('json');
@@ -59,7 +60,7 @@ describe('PostService', () => {
         expect(response).toBeDefined();
       });
 
-      const req = testingController.expectOne('https://projectdemo-9f2d5-default-rtdb.firebaseio.com/posts.json');
+      const req = testingController.expectOne(baseUrl+"/posts.json");
       expect(req.request.method).toEqual('POST');
       req.flush({});
     });
@@ -85,7 +86,8 @@ describe('PostService', () => {
         expect(response).toBeDefined();
       });
 
-      const req = testingController.expectOne(`https://projectdemo-9f2d5-default-rtdb.firebaseio.com/posts/${mockPost.postId}.json`);      
+      const req = testingController.expectOne(`${baseUrl}/posts/${mockPost.postId}.json`);      
+    
       expect(req.request.method).toBe('PUT');
       req.flush({});
 
@@ -107,7 +109,8 @@ describe('PostService', () => {
       service.getPost('abc').subscribe((response) =>{
         expect(response).toBeDefined();
       });
-      const req = testingController.expectOne(`https://projectdemo-9f2d5-default-rtdb.firebaseio.com/posts/${mockPost.postId}.json`);      
+      const req = testingController.expectOne(`${baseUrl}/posts/${mockPost.postId}.json`);      
+   
       expect(req.request.method).toBe('GET');
       expect(req.request.responseType).toEqual('json');
       req.flush({});
