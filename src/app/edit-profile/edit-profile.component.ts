@@ -6,6 +6,7 @@ import { AuthService } from '../shared/auth.service';0
 import { ProfileService } from '../shared/profile.service';
 import { MatDialog } from '@angular/material/dialog'; // Import MatDialog
 import { UserService } from '../shared/user.service';
+import { PostService } from '../shared/post.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -18,13 +19,15 @@ export class EditProfileComponent implements OnInit {
   user: User = new User();
   userId: string = '';
   previousvalues: User = new User();
+  loadingStatus: boolean = true;
 
   constructor(
     private auth: AuthService,
     private profileService: ProfileService,
     private userService: UserService,
     private formBuilder: FormBuilder,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private postService : PostService
   ) {
     this.edit = this.formBuilder.group({
       username: [''],
@@ -52,17 +55,30 @@ export class EditProfileComponent implements OnInit {
     });
   }
 
+  // onPicSelection(ref: HTMLInputElement) {
+  //   this.selectedFile = ref.files[0];
+  //   if (this.selectedFile) {
+  //     let fileReader = new FileReader();
+  //     fileReader.onload = (event) => {
+  //       const base64String = fileReader.result as string;
+  //       this.edit.get('image')?.setValue(base64String);
+  //     };
+  //     fileReader.readAsDataURL(this.selectedFile);
+  //   }
+  // }
+
   onPicSelection(ref: HTMLInputElement) {
-    this.selectedFile = ref.files[0];
-    if (this.selectedFile) {
-      let fileReader = new FileReader();
-      fileReader.onload = (event) => {
-        const base64String = fileReader.result as string;
-        this.edit.get('image')?.setValue(base64String);
-      };
-      fileReader.readAsDataURL(this.selectedFile);
-    }
+    this.loadingStatus = false;
+    this.postService.hostMethod(ref.files[0]).subscribe(data => {
+      this.loadingStatus = true;
+      console.log(data);
+      this.edit.get('image')?.setValue(data);
+
+    }, err => {
+      console.log(err);
+    })
   }
+
 
   onClick() {
     const descriptionValue = this.edit.get('description')?.value;
@@ -90,6 +106,7 @@ export class EditProfileComponent implements OnInit {
     this.profileService.updateUserProfile(this.auth.userId, this.user).subscribe((data) => {
       alert('Profile updated successfully');
       this.profileService.updateProfile.emit();
+      this.dialog.closeAll();
     }, (err) => {
       alert('Error: ' + err);
     });

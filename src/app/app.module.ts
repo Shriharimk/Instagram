@@ -25,7 +25,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
-import { HttpClientModule } from  '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from  '@angular/common/http';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
@@ -37,6 +37,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { CdkVirtualScrollViewport, ScrollingModule } from '@angular/cdk/scrolling';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HoverEffectDirective } from './hover-effect.directive';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -44,6 +45,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { InterceptorInterceptor } from './shared/interceptors/interceptor.interceptor';
 
 
 
@@ -89,13 +91,17 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
+    MatSnackBarModule,
+
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
 
   ],
   exports:[RouterModule],
-  providers: [AuthService, AngularFireAuth,ProfileService],
+  providers: [AuthService, AngularFireAuth, ProfileService, {
+    provide: HTTP_INTERCEPTORS, useClass: InterceptorInterceptor, multi:true
+  }],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

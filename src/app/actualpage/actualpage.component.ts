@@ -11,6 +11,11 @@ import { PostService } from '../shared/post.service';
 import { Subscription, map } from 'rxjs';
 import { ProfileComponent } from '../profile/profile.component';
 import { UserService } from '../shared/user.service';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-actualpage',
@@ -38,6 +43,8 @@ export class ActualpageComponent {
   userImageMap: { [userId: string]: string } = {};
   userNameMap: { [userId:string]: string} = {};
   isFetching :Boolean = false;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'right';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
 
 
   sub1 : Subscription;
@@ -55,7 +62,8 @@ export class ActualpageComponent {
     private profileService: ProfileService,
     private dialog: MatDialog,
     private postService: PostService,
-    private userService: UserService){}
+    private userService: UserService,
+    private _snackBar: MatSnackBar){}
   
   ngOnInit(){
     this.getPosts();
@@ -116,10 +124,14 @@ export class ActualpageComponent {
   
   
   loadUserProfile(uid: string) {
-    console.log('Loading profile')
+    console.log('Loading profile');
+    console.log(this.profileUser.profileImage);
+    
     this.sub5 = this.profileService.getUserProfile(uid).subscribe((data) => {
       this.profileUser=Object(data);
-      console.log('loadprofile funciton');
+      if(this.profileUser.profileImage == undefined){
+        this.openSnackBar();
+      }
     }, () =>{
       alert('something went wrong in retrieveing user profile');
     });
@@ -185,6 +197,12 @@ export class ActualpageComponent {
   onLogout() {
     this.auth.logout();
     this.router.navigate(['/landing']);
+  }
+  openSnackBar() {
+    this._snackBar.open('Setup Your Profile!!', 'Ok!', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
   }
 
 }

@@ -50,6 +50,7 @@ export class LoginComponent {
     this.loadingStatus = this.auth.loading;
     this.user.email='';
     this.user.password='';
+    this.form.reset();
   }
 
   signInWithGoogle(){
