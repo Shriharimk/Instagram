@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth'
 import { Router } from '@angular/router';
-import { GoogleAuthProvider,FacebookAuthProvider,GithubAuthProvider, TwitterAuthProvider } from '@angular/fire/auth'
+import { GoogleAuthProvider } from '@angular/fire/auth'
 import { User } from '../class/user';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 
@@ -16,21 +15,43 @@ export class AuthService {
   username:string= '';
   user : User = new User();
   loginStatus: boolean = false;
+  loading: boolean = false;
 
 
   constructor(private fireauth: AngularFireAuth, 
               private router: Router,
-              private http: HttpClient,
-              private database: AngularFireDatabase) { }
+              private database: AngularFireDatabase)
+              {
+                const storedUserId = this.getStoredUserId();
+                console.log('recieved from local storage: ')
+                console.log(storedUserId);
+                  if (storedUserId) {
+                    this.userId = storedUserId;
+                    this.authenticated = true;
+                    this.loginStatus=true;
+                  }
+              }
+
+  //store logged info in local storage
+  storeUserData( user: any){
+    console.log('storing in local storage....')
+    console.log(user.uid)
+    localStorage.setItem('userId', user.uid);
+  }
+  //retrieve stored User 
+  private getStoredUserId(): string {
+    return localStorage.getItem('userId') || '';
+  }
 
   //login
   login(email: string, password: string){
     this.fireauth.signInWithEmailAndPassword(email, password).then(res => {
-      localStorage.setItem('token','true')
+      this.storeUserData(res.user);
       this.router.navigate(['/actualpage']);
       this.loginStatus=true;
       this.userId = res.user.uid;
       this.authenticated=true;
+      this.loading=true;
     },err =>{
       const errorCode = err.code;
       const errorMessage = err.message;
@@ -58,7 +79,7 @@ export class AuthService {
     this.storeUserDetails(uid,user);
     this.router.navigate(['/login'])
     },err =>{
-      alert('Something went wrong :(. Try again!');
+      alert('Something went wrong :( Try again!');
       this.router.navigate(['/signup'])
     });
   }
@@ -81,7 +102,7 @@ export class AuthService {
   //logout
   logout(){
     this.fireauth.signOut().then(()=>{
-      localStorage.removeItem('token')
+      localStorage.removeItem('userId')
       this.router.navigate(['/landing'])
       this.loginStatus=false;
     },err =>{
@@ -115,7 +136,7 @@ export class AuthService {
   googleSignIn(){
     return this.fireauth.signInWithPopup(new GoogleAuthProvider).then(res =>{      
       this.router.navigate(['/','actualpage'])
-      localStorage.setItem('token',JSON.stringify(res.user?.uid))
+      this.storeUserData(res.user);
     }, err =>{
       alert(err.message);
     })

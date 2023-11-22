@@ -1,3 +1,4 @@
+<div class="main-div">
 <mat-card>
   <mat-card-header>
     <mat-card-title>Create Post</mat-card-title>
@@ -6,14 +7,27 @@
     <div>
       <textarea formControlName="description" placeholder="Type Message...."></textarea>
     </div>
-    
+
     <mat-card-actions align="end">
       <button appHoverEffect mat-button>
-        <label for="photo-upload" ></label>
-        <input formControlName="image" #pic (change)="onPicSelection(pic)" id="post-preview-img"type="file" accept="image/*">
+        <label for="photo-upload"></label>
+        <input formControlName="image" #pic (change)="onPicSelection(pic)" id="post-preview-img" type="file"
+          accept="image/*">
         <mat-icon>insert_photo</mat-icon>
       </button>
-      <button appHoverEffect type="submit" mat-flat-button >Post</button>
+      <button appHoverEffect [disabled]="!loadingStatus" type="submit" mat-flat-button>Post</button>
+      <div class="spinner" *ngIf="!loadingStatus">
+        <mat-progress-spinner class="example-margin" color="primary" mode="indeterminate" diameter="30">
+        </mat-progress-spinner>
+      </div>
     </mat-card-actions>
-</form>
+  </form>
 </mat-card>
+<div class="spinner" *ngIf="!loadingStatus">
+  <mat-progress-spinner
+   class="example-margin"
+   color="primary"
+   mode="indeterminate"
+   diameter="30">
+  </mat-progress-spinner></div>
+</div>

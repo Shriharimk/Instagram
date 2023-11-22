@@ -6,9 +6,16 @@
           "projectdemo-9f2d5"
         ]
       }
+    },
+    "instagram-83b4b": {
+      "hosting": {
+        "projectdemo": [
+          "instagram-83b4b"
+        ]
+      }
     }
   },
   "projects": {
-    "default": "projectdemo-9f2d5"
+    "default": "instagram-83b4b"
   }
 }

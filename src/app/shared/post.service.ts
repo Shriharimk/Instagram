@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Posts } from '../class/posts';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +36,26 @@ export class PostService {
   getPost(postId: string){
     return this.http.get(`${this.baseUrl}/posts/${postId}.json`)
   }
+
+  hostMethod(image: File) {
+    console.log('image recieved: ')
+    console.log(image)
+    const apiUrl = 'https://api.imgbb.com/1/upload';
+    const apiKey = '384825b3fc807f61653aff87b097e88e'
+
+    const form = new FormData();
+    form.append('image',image);
+    console.log(form)
+    
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+    });
+
+    console.log('url being sent:')
+    console.log(apiUrl, form, { headers })
+    return this.http.post(apiUrl, form, { params: {key: apiKey} })
+                    .pipe(map((response)=> response['data']['url']));
+  }
+
+  
 }

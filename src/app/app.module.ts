@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -42,6 +42,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 
@@ -59,6 +62,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     EditProfileComponent,
     HoverEffectDirective,
     NotFoundComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +85,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     MatCardModule,
     ScrollingModule,
     MatAutocompleteModule,
+    MatProgressSpinnerModule,
     MatIconModule,
     MatMenuModule,
     MatButtonModule,
@@ -91,7 +96,8 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
   ],
   exports:[RouterModule],
   providers: [AuthService, AngularFireAuth,ProfileService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
 export class AppModule { }

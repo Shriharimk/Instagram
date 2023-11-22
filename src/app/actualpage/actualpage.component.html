@@ -22,19 +22,54 @@
 </div>  
   
 <!-- side-navbar-->
-<div class="sidebar">
+<div style="position: fixed;
+top: 66px;
+left: 0px;
+bottom: 0px;
+width: 200px;
+background-color: white;
+font-family: Roboto;
+z-index: 1001;
+padding-top: 5px;
+display: flex;
+flex-direction: column;
+border: 1px solid lightgray;
+border-radius: 5px;
+align-items: center;
+justify-content: space-evenly;">
   <div class="sb-container">
     <div class="sb-container-1">
       <div class="sb" >
-        <img   class="home" src="../../assets/home.png">
+        <lord-icon
+            src="https://cdn.lordicon.com/cnpvyndp.json"
+            trigger="hover"
+            style="width:40px;height:40px">
+        </lord-icon>
         <div   class="button-descp">Home</div>
       </div>
       <div class="sb" title="New Post!" (click)="newPost()">
-        <a style="cursor: pointer;" title="New Post" ><img class="nwpost-icon" src="../../assets/more.png" alt="NewPost"></a>
+        <a style="cursor: pointer;" title="New Post" >
+          <!-- <img class="nwpost-icon" src="../../assets/more.png" alt="NewPost"> -->
+          <lord-icon
+              src="https://cdn.lordicon.com/zrkkrrpl.json"
+              trigger="hover"
+              colors="primary:#121331,secondary:#000000"
+              style="width:40px;height:40px">
+          </lord-icon>
+        </a>
         <div class="button-descp">Create</div>
       </div>
       <div class="sb" title="Reels!" >
-        <a style="cursor: pointer;" title="Reels" ><img class="nwpost-icon" src="../../assets/video_7264012.png" alt="NewPost"></a>
+        <a style="cursor: pointer;" title="Reels" >
+          <!-- <img class="nwpost-icon" src="../../assets/video_7264012.png" alt="NewPost"> -->
+          <lord-icon
+              src="https://cdn.lordicon.com/lwvaowvp.json"
+              trigger="hover"
+              colors="primary:#000000,secondary:#000000"
+              style="
+              width:40px;height:40px">
+          </lord-icon>
+        </a>
         <div class="button-descp">Reels</div>
       </div>
       <div class="sb" title="Explore!" >
@@ -46,7 +81,14 @@
         <div class="button-descp">Msgs</div>
       </div>
       <div class="sb" title="Alerts!" >
-        <a style="cursor: pointer;" title="Alerts" ><img class="nwpost-icon" src="../../assets/notification.png" alt="NewPost"></a>
+        <a style="cursor: pointer;" title="Alerts" >
+          <!-- <img class="nwpost-icon" src="../../assets/notification.png" alt="NewPost"> -->
+          <lord-icon
+              src="https://cdn.lordicon.com/vspbqszr.json"
+              trigger="hover"
+              style="width:40px;height:40px">
+          </lord-icon>
+        </a>
         <div class="button-descp">Alerts</div>
       </div>
       <div class="sb" title="View Profile" (click)="navigateToProfile(userId)">
@@ -62,7 +104,8 @@
 <!-- ... main content ... --> 
 <div class="main">
  <div class="main-container">
-    <div *ngFor="let post of posts" class="post">
+  <app-spinner *ngIf="!isFetching"></app-spinner>
+  <div *ngFor="let post of posts" class="post">
       <div class="container">
         <div class="column">
           <div class="username" (click)="navigateToProfile(post.userId)" style="cursor: pointer;">
@@ -80,25 +123,52 @@
             <div (click)="likePost(post);" style="cursor: pointer;" title="Like!">
               <div class="like">
                 <div class="like-icon">
-                  <span *ngIf="liked" class="material-icons">
+                  <!-- <span *ngIf="liked" class="material-icons">
                     favorite
                     </span>
                     <span *ngIf="!liked" class="material-icons">
                       favorite_border
-                    </span>
+                    </span> -->
+                    <lord-icon
+                        src="https://cdn.lordicon.com/xyboiuok.json"
+                        trigger="hover"
+                        style="
+                        margin-top: -4px;
+                        width:25px;
+                        height:25px;
+                        padding: 0px;">
+                    </lord-icon>
                 </div>
                 <div class="like-count">{{ post.likes }}</div>
               </div>
             </div>
             <div class="comment">
               <div class="comment-icon">
-                <img src="../../assets/chat.png" alt="Comment Icon">
+                <!-- <img src="../../assets/chat.png" alt="Comment Icon"> -->
+                <lord-icon
+                    src="https://cdn.lordicon.com/fdxqrdfe.json"
+                    trigger="hover"
+                    style="
+                    margin-top: -4px;
+                        width:25px;
+                        height:25px;
+                        padding: 0px;">
+                </lord-icon>
               </div>
               <div class="comment-count">75</div>
             </div>
             <div class="comment">
               <div class="comment-icon">
-                <img src="../../assets/send.png" alt="send Icon">
+                <!-- <img src="../../assets/send.png" alt="send Icon"> -->
+                <lord-icon
+                    src="https://cdn.lordicon.com/ercyvufy.json"
+                    trigger="hover"
+                    style="
+                    margin-top: -4px;
+                        width:25px;
+                        height:25px;
+                        padding: 0px;">
+                </lord-icon>
               </div>
               <div class="comment-count"></div>
             </div>

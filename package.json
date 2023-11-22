@@ -23,6 +23,8 @@
     "@angular/router": "^16.2.0",
     "boxicons": "^2.1.4",
     "firebase": "^10.5.0",
+    "lord-icon-element": "^4.1.2",
+    "lottie-web": "^5.12.2",
     "particles.js": "^2.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

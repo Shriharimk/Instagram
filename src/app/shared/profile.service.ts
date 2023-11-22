@@ -21,7 +21,7 @@ export class ProfileService {
 
   updateUserProfile(uid: string,updatedProfile: User) {
     console.log('userId received in update: '+ uid)
-    return this.http.put(this.baseUrl+'/users/'+uid+'.json',updatedProfile)
+    return this.http.patch(this.baseUrl+'/users/'+uid+'.json',updatedProfile)
   }
 
   getUserPosts(uid: string) {

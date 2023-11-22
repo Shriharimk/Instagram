@@ -27,6 +27,7 @@ export class ProfileComponent implements OnInit {
   rUid : string;
   authUid :string = '';
   check : boolean=false;
+  isFetching : boolean = false;
  
 
 
@@ -111,8 +112,10 @@ export class ProfileComponent implements OnInit {
   }
 
   loadUserPosts(uid: string) {
+    
     this.profileService.getUserPosts(uid).subscribe((data) => {
       this.userPosts = data;
+      this.isFetching=true;
     }, (err) => {
       alert('error in getting posts: ' + err);
     });

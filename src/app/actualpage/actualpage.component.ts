@@ -8,7 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NewPostComponent } from '../new-post/new-post.component';
 import { User } from '../class/user';
 import { PostService } from '../shared/post.service';
-import { map } from 'rxjs';
+import { Subscription, map } from 'rxjs';
 import { ProfileComponent } from '../profile/profile.component';
 import { UserService } from '../shared/user.service';
 
@@ -37,6 +37,16 @@ export class ActualpageComponent {
   usersList : User[] =[];
   userImageMap: { [userId: string]: string } = {};
   userNameMap: { [userId:string]: string} = {};
+  isFetching :Boolean = false;
+
+
+  sub1 : Subscription;
+  sub2 : Subscription;
+  sub3 : Subscription;
+  sub4 : Subscription;
+  sub5 : Subscription;
+  sub6 : Subscription;
+  sub7 : Subscription;
 
 
   constructor(
@@ -54,14 +64,14 @@ export class ActualpageComponent {
     this.loadUserProfile(this.userId);
     this.getUsersList();
     
-    this.postService.newPostAdded.subscribe(data =>
+    this.sub1 = this.postService.newPostAdded.subscribe(data =>
     {
       this.getPosts();
       },err => {
         alert('Something went wrong');
     })
 
-    this.postService.postLiked.subscribe(data =>{
+    this.sub2 = this.postService.postLiked.subscribe(data =>{
       this.getPosts();
       }, err =>{
         alert('Something went wrong');
@@ -70,7 +80,7 @@ export class ActualpageComponent {
   
   getUsersList(){
     console.log('Getting users list..')
-      this.userService.getUsers().pipe(map((response: any) => {
+    this.sub3 = this.userService.getUsers().pipe(map((response: any) => {
         const users: User[] = [];
     
         for (const key in response) {
@@ -95,7 +105,7 @@ export class ActualpageComponent {
   }
   
   onSearchInputChange() {
-    this.userService.getUsers().subscribe((res) => {
+  this.sub4 = this.userService.getUsers().subscribe((res) => {
       this.matchingUsers = this.usersList.filter(user =>user.username.toLocaleLowerCase().includes(this.searchItem.toLocaleLowerCase()));
     },err =>{
       if(this.matchingUsers.length<=0){
@@ -107,7 +117,7 @@ export class ActualpageComponent {
   
   loadUserProfile(uid: string) {
     console.log('Loading profile')
-    this.profileService.getUserProfile(uid).subscribe((data) => {
+    this.sub5 = this.profileService.getUserProfile(uid).subscribe((data) => {
       this.profileUser=Object(data);
       console.log('loadprofile funciton');
     }, () =>{
@@ -122,7 +132,7 @@ export class ActualpageComponent {
 
   getPosts() {
     console.log('getting all Posts')
-    this.postService.getAllPosts().pipe(map((response: any) => {
+    this.sub6 = this.postService.getAllPosts().pipe(map((response: any) => {
       const posts: Posts[] = [];  
       for (const key in response) {
         if (response.hasOwnProperty(key)) {
@@ -133,6 +143,7 @@ export class ActualpageComponent {
       }
     return posts;
     })).subscribe((data) => {
+      this.isFetching=true;
       this.posts = data;
       this.sorting();
     });
@@ -157,7 +168,7 @@ export class ActualpageComponent {
   likePost(post: Posts) {
     this.liked=true
     post.likes++;
-    this.postService.updatePost(post.postId, post).subscribe(() => {
+    this.sub7 = this.postService.updatePost(post.postId, post).subscribe(() => {
       this.postService.postLiked.emit();
     }, err => {
       console.log('Error updating post likes: ', err);

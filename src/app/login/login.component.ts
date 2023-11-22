@@ -24,8 +24,13 @@ export class LoginComponent {
   ];
   public logoImageIndex = 0;
   public currentLogo: string;
+  public loadingStatus : boolean = false;
+  
 
-  constructor(private router: Router, private auth: AuthService, private el: ElementRef) {}
+
+  constructor(private router: Router, private auth: AuthService, private el: ElementRef) {
+    
+  }
 
   ngOnInit() {
     this.currentLogo=this.instaLogoImages[0];
@@ -40,7 +45,9 @@ export class LoginComponent {
   }
   onLoginSubmit() {
     this.submitted = true;
+    this.loadingStatus = this.auth.loading;
     this.auth.login(this.user.email,this.user.password);
+    this.loadingStatus = this.auth.loading;
     this.user.email='';
     this.user.password='';
   }

@@ -2,22 +2,18 @@
   display: flex;
   flex-direction: column;
 }
-
 .main-container {
   position: relative;
-  height: 100vh; /* 100% viewport height */
-  /* margin-top: 80px; */
+  height: 100vh;
   padding-top: 50px;
   scroll-margin-top: 30px;
 }
-
 .container{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  
+  margin-top: 20px;  
 }
 .column{
   display: flex;
@@ -25,32 +21,26 @@
   height: 600px;
   width: 500px;
   border-top: 1px solid lightgray;
-
 }
 .description{
   height: 10%;
   margin-left: 20px;
-  /* background-color: red; */
 }
-
 .like-comment{
   display: flex;
   flex-direction: row;
   height: 5%;
   margin-left:4px;
   margin-top: 2px;
-  /* background-color: green; */
 }
 .like{
   display: flex;
   flex-direction: row;
-  /* background-color: orange; */
   align-items: center;
   justify-content: space-around;
   height: 65%;
   margin-left: 10px;
-  padding: 8px;
-  
+  padding: 8px;  
   }
   .like-icon{
     height: 100%;
@@ -60,35 +50,30 @@
 .comment{
   display: flex;
   flex-direction: row;
-  /* background-color: orange; */
   align-items: center;
   justify-content: space-around;
   height: 60%;
   padding: 8px;
-
 }
 .comment-icon{
   height: 100%;
   width: 100%;
 }
-
 .post-image{
   display: flex;
   flex-direction: row;
   height: 80%;
-  /* background-color: blue; */
   justify-content: center;
   margin-bottom: 3px;
   max-width: 500px;
   max-height: 500px;
   overflow: hidden;
-
 }
 .post-img{
   border-radius: 2px;
   border-radius: 2px;
-  max-width: 100%; /* Set the maximum width to 100% of the container */
-  max-height: 100%; /* Set the maximum height to 100% of the container */
+  max-width: 100%; 
+  max-height: 100%; 
   object-fit: contain;
 }
 .username{
@@ -100,17 +85,17 @@
   margin-bottom: 2px;
 }
 .username-icon {
-  height: 35px; /* Set the desired height */
-  width: 35px;  /* Set the desired width */
-  border-radius: 50%; /* To make the image circular */
-  object-fit: cover; /* To make sure the image covers the entire area */
+  height: 35px; 
+  width: 35px; 
+  border-radius: 50%; 
+  object-fit: cover; 
   margin-right: 5px;
 }
 .nwpost-icon img,
 .like-icon img,
 .comment-icon img {
-  max-width: 100%; /* Makes the image responsive to its parent container */
-  max-height: 100%; /* Makes the image responsive to its parent container */
+  max-width: 100%; 
+  max-height: 100%; 
 }
 .post-timestamp{
   position: absolute;
@@ -119,20 +104,7 @@
   right: 420px;
   font-size: 10px;
   color: grey;
-
 }
-/* .new-post {
-  position: fixed;
-  height: 55px;
-  width: 55px;
-  bottom: 2em; 
-  right: 2em; 
-}
-.nwpost-icon{
-  height: 100%;
-  width: 100%;
-} */
-
 
 /*header*/
 .header{
@@ -160,7 +132,6 @@
   padding-top: 5px;
   color: White;
 }
-
 .hamburger{
   width:100%;
   height: 24px;
@@ -171,7 +142,6 @@
   height: 50px;
   width: 100%;
   margin-left: 18px;
-
 }
 .searchbox{
   font-size: 14px;
@@ -193,7 +163,6 @@
   margin-left: -1;
   margin-right: 8px;
   border-radius: 100px;
-
 }
 .search-button{
   height: 25px;
@@ -205,7 +174,7 @@
   display: flex;
   margin-left: 20px;
   margin-right: 30px;
-  max-width: 350px;/* to prevent the search box from growing endlessly*/
+  max-width: 350px;
   align-items: center;
 }
 .right-sec{
@@ -218,35 +187,16 @@
 }
 .profile{
   border-radius: 15px;
-  height: 10px; /* Set the desired height */
-  width: 10px;  /* Set the desired width */
+  height: 10px; 
+  width: 10px;  
 }
 .user-icon {
-  height: 50px; /* Set the desired height */
-  width: 50px;  /* Set the desired width */
-  border-radius: 50%; /* To make the image circular */
-  object-fit: cover; /* To make sure the image covers the entire area */
+  height: 50px; 
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover; 
 }
 
-/*sidebar*/
-
-.sidebar{
-  position: fixed;
-  top: 66px;
-  left: 0px;
-  bottom: 0px;
-  width: 200px;
-  background-color: white;
-  font-family: Roboto;
-  z-index: 1001;
-  padding-top: 5px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  align-items: center;
-  justify-content: space-evenly;
-}
 .sb{
   height: 74px;  
   display: flex;
@@ -259,7 +209,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  /* border: 1px solid lightgray; */
   border-radius: 10px;
 }
 div{
@@ -277,8 +226,8 @@ div{
   text-align: left;
 }
 .sb img{
-  height: 35px; /* Set a fixed height for all images */
-  width: 35px; /* Set a fixed width for all images */
+  height: 35px; 
+  width: 35px; 
   margin-bottom: 4px;
 }
 .sb-container{
@@ -302,16 +251,11 @@ div{
     display: none;
   }
 }
-
 @media (max-width: 1000px) {
   .sidebar {
     display: block;
-    width: 80px; /* Adjust the width as needed */
+    width: 80px; 
   }
-  /* .sb {
-    justify-content: center;
-    font-size: 0;
-  } */
   .sb img {
     height: 35px;
   }
@@ -319,20 +263,18 @@ div{
     display: none; 
   }
   .sb-container-logout,.div1,.div2 {
-    display: none; /* Hide the logout button */
+    display: none; 
   }
 }
-
-/* Main content adjustments for screens below 800px */
 @media (max-width: 800px) {
   .main-container {
-    padding-left: 120px; /* Adjust the left padding to accommodate the sidebar */
+    padding-left: 120px; 
   }
   .container {
-    width: 100%; /* Make the content full width when the sidebar is visible */
+    width: 100%; 
   }
   .column {
-    width: 100%; /* Make the content full width when the sidebar is visible */
+    width: 100%; 
   }
 }
 .right-float{
@@ -348,30 +290,18 @@ div{
   display: flex;
   flex-direction: column;
 }
-/* .up :hover{
-  transform: translate(5px,-5px);
-  background-color: lightgreen;
-}
-.down :hover{
-  transform: translate(5px,5px);
-  background-color: lightcoral;
-} */
 .up:hover {
-  color: lightgreen; /* Change the text color to lightgreen on hover */
+  color: lightgreen;
 }
-
 .down:hover {
-  color: lightcoral; /* Change the text color to lightcoral on hover */
+  color: lightcoral;
 }
-
 .up:hover mat-icon {
-  transform: translateY(-5px); /* Move the icon 5px up on hover */
+  transform: translateY(-5px); 
 }
-
 .down:hover mat-icon {
-  transform: translateY(5px); /* Move the icon 5px down on hover */
+  transform: translateY(5px);
 }
-
 .sb-right{
   width: 100%;
   display: flex;
@@ -380,5 +310,3 @@ div{
   justify-content: space-evenly;
   margin-right: 5px;
 }
-
-
