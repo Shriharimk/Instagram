@@ -15,7 +15,7 @@ export class FabButtonComponent {
   input1: string = "inp1";
   input2: string = "inp1";
   userId: string = '';
-  user: User;
+  user: User = new User();
 
 
   constructor(
@@ -26,6 +26,7 @@ export class FabButtonComponent {
 
   ngOnInit() {
     this.userId = this.auth.userId;
+    console.log("in FAB userID: "+this.userId)
     this.loadUserProfile();
   }
 

@@ -105,10 +105,6 @@ export class ActualpageComponent {
         this.userImageMap[user.userId] = user.profileImage;
         this.userNameMap[user.userId] = user.username;
         });
-        console.log('new users');
-        console.log(this.usersList);
-        console.log('userImage map: ');
-        console.log(this.userImageMap);
       });
   }
   
