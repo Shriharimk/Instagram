@@ -46,6 +46,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { InterceptorInterceptor } from './shared/interceptors/interceptor.interceptor';
+import { FabButtonComponent } from './shared/fab-button/fab-button.component';
 
 
 
@@ -65,6 +66,7 @@ import { InterceptorInterceptor } from './shared/interceptors/interceptor.interc
     HoverEffectDirective,
     NotFoundComponent,
     SpinnerComponent,
+    FabButtonComponent,
   ],
   imports: [
     BrowserModule,

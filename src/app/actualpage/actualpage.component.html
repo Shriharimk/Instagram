@@ -1,96 +1,61 @@
-<div class="profielmsg">
-  <button mat-stroked-button (click)="openSnackBar()" style="background-color: black;" aria-label="Show an example snack-bar">
-    Setup Your Profile!!!!
-  </button>
-</div>
 <div class="header">
   <div class="left-sec">
-    <img class="insta-logo" src="assets/images/instagram-logo.png"  alt="Instagram" >
+    <img class="insta-logo2" src="../../assets/instagram.png" alt="Instagram">
+    <img class="insta-logo" src="assets/images/instagram-logo.png" alt="Instagram">
   </div>
-  <div class="middle-sec">        
-    <input
-      mat-icon-button [matMenuTriggerFor]="menu"
-      class="searchbox"
-      type="text"
-      [(ngModel)]="searchItem"
-      (input)="onSearchInputChange()"
-      placeholder="Find others!!  "
-      />
+  <div class="middle-sec">
+    <input mat-icon-button [matMenuTriggerFor]="menu" class="searchbox" type="text" [(ngModel)]="searchItem"
+      (input)="onSearchInputChange()" placeholder="Find others!!  " />
     <mat-menu #menu="matMenu">
       <button appHoverEffect mat-menu-item (click)="navigateToProfile(user.userId)" *ngFor="let user of matchingUsers">
         {{ user.username }}
       </button>
-    </mat-menu>          
+    </mat-menu>
   </div>
   <div class="right-sec"></div>
-</div>  
-  
+</div>
 <!-- side-navbar-->
-<div style="position: fixed;
-top: 66px;
-left: 0px;
-bottom: 0px;
-width: 200px;
-background-color: white;
-font-family: Roboto;
-z-index: 1001;
-padding-top: 5px;
-display: flex;
-flex-direction: column;
-border: 1px solid lightgray;
-border-radius: 5px;
-align-items: center;
-justify-content: space-evenly;">
+<div class="sidebar">
   <div class="sb-container">
     <div class="sb-container-1">
-      <div class="sb" >
-        <lord-icon
-            src="https://cdn.lordicon.com/cnpvyndp.json"
-            trigger="hover"
-            style="width:40px;height:40px">
+      <div class="sb">
+        <lord-icon src="https://cdn.lordicon.com/cnpvyndp.json" trigger="hover" style="width:40px;height:40px">
         </lord-icon>
-        <div   class="button-descp">Home</div>
+        <div class="button-descp">Home</div>
       </div>
       <div class="sb" title="New Post!" (click)="newPost()">
-        <a style="cursor: pointer;" title="New Post" >
+        <a style="cursor: pointer;" title="New Post">
           <!-- <img class="nwpost-icon" src="../../assets/more.png" alt="NewPost"> -->
-          <lord-icon
-              src="https://cdn.lordicon.com/zrkkrrpl.json"
-              trigger="hover"
-              colors="primary:#121331,secondary:#000000"
-              style="width:40px;height:40px">
+          <lord-icon src="https://cdn.lordicon.com/zrkkrrpl.json" trigger="hover"
+            colors="primary:#121331,secondary:#000000" style="width:40px;height:40px">
           </lord-icon>
         </a>
         <div class="button-descp">Create</div>
       </div>
-      <div class="sb" title="Reels!" >
-        <a style="cursor: pointer;" title="Reels" >
+      <div class="sb" title="Reels!">
+        <a style="cursor: pointer;" title="Reels">
           <!-- <img class="nwpost-icon" src="../../assets/video_7264012.png" alt="NewPost"> -->
-          <lord-icon
-              src="https://cdn.lordicon.com/lwvaowvp.json"
-              trigger="hover"
-              colors="primary:#000000,secondary:#000000"
-              style="
+          <lord-icon src="https://cdn.lordicon.com/lwvaowvp.json" trigger="hover"
+            colors="primary:#000000,secondary:#000000" style="
               width:40px;height:40px">
           </lord-icon>
         </a>
         <div class="button-descp">Reels</div>
       </div>
-      <div class="sb" title="Explore!" >
-        <a style="cursor: pointer;" title="Explore" ><img class="nwpost-icon" src="../../assets/compass_3405524.png" alt="NewPost"></a>
+      <div class="sb" title="Explore!">
+        <a style="cursor: pointer;" title="Explore"><img class="nwpost-icon" src="../../assets/compass_3405524.png"
+            alt="NewPost"></a>
         <div class="button-descp">Explore</div>
       </div>
-      <div class="sb" title="Messages!" >
-        <a style="cursor: pointer;" title="Messages" ><img class="nwpost-icon" src="../../assets/messenger_3781712.png" alt="NewPost"></a>
+      <div class="sb" title="Messages!">
+        <a style="cursor: pointer;" title="Messages"><img class="nwpost-icon" src="../../assets/messenger_3781712.png"
+            alt="NewPost"></a>
         <div class="button-descp">Msgs</div>
       </div>
-      <div class="sb" title="Alerts!" >
-        <a style="cursor: pointer;" title="Alerts" >
+      <div class="sb" title="Alerts!">
+        <a style="cursor: pointer;" title="Alerts">
           <!-- <img class="nwpost-icon" src="../../assets/notification.png" alt="NewPost"> -->
-          <lord-icon
-              src="https://cdn.lordicon.com/vspbqszr.json"
-              trigger="hover"
-              style="width:40px;height:40px">
+          <lord-icon src="https://cdn.lordicon.com/vspbqszr.json" trigger="hover" style="width:40px;height:40px">
           </lord-icon>
         </a>
         <div class="button-descp">Alerts</div>
@@ -100,28 +65,34 @@ justify-content: space-evenly;">
         <div class="button-descp">{{ profileUser.username }}</div>
       </div>
     </div>
-    <div class="sb-container-logout">
-      <button appHoverEffect mat-button color="warn" class="logout" type="submit" (click)="onLogout()">Logout</button>
+    <div class="sb" title="Leaving so soon :(" (click)="onLogout()">
+      <a class="user-icon" style="cursor: pointer;" title="Logout">
+        <lord-icon class="nwpost-icon" src="https://cdn.lordicon.com/gwvmctbb.json" trigger="hover"
+          colors="primary:#000000,secondary:#000000" style="width:40px;height:40px">
+        </lord-icon>
+      </a>
+      <div class="button-descp" title="Leaving so soon :(" style="color: rgba(255, 0, 0, 0.784);">Logout</div>
     </div>
+
   </div>
 </div>
-<!-- ... main content ... --> 
+<!-- ... main content ... -->
 <div class="main">
- <div class="main-container">
-  <app-spinner *ngIf="!isFetching"></app-spinner>
-  <div *ngFor="let post of posts" class="post">
+  <div class="main-container">
+    <app-spinner *ngIf="!isFetching"></app-spinner>
+    <div *ngFor="let post of posts" class="post">
       <div class="container">
         <div class="column">
           <div class="username" (click)="navigateToProfile(post.userId)" style="cursor: pointer;">
             <div class="username-col1">
-              <img class="username-icon" [src]="userImageMap[post.userId]" alt="" >
+              <img class="username-icon" [src]="userImageMap[post.userId]" alt="">
             </div>
             <div class="username-col2">
               <b>{{ userNameMap[post.userId] }}</b>
-            </div>            
-          </div>          
+            </div>
+          </div>
           <div class="post-image">
-            <img class="post-img"  src="{{post.path}}" alt="Post Image">
+            <img class="post-img" src="{{post.path}}" alt="Post Image">
           </div>
           <div class="like-comment">
             <div (click)="likePost(post);" style="cursor: pointer;" title="Like!">
@@ -133,15 +104,12 @@ justify-content: space-evenly;">
                     <span *ngIf="!liked" class="material-icons">
                       favorite_border
                     </span> -->
-                    <lord-icon
-                        src="https://cdn.lordicon.com/xyboiuok.json"
-                        trigger="hover"
-                        style="
+                  <lord-icon src="https://cdn.lordicon.com/xyboiuok.json" trigger="hover" style="
                         margin-top: -4px;
                         width:25px;
                         height:25px;
                         padding: 0px;">
-                    </lord-icon>
+                  </lord-icon>
                 </div>
                 <div class="like-count">{{ post.likes }}</div>
               </div>
@@ -149,10 +117,7 @@ justify-content: space-evenly;">
             <div class="comment">
               <div class="comment-icon">
                 <!-- <img src="../../assets/chat.png" alt="Comment Icon"> -->
-                <lord-icon
-                    src="https://cdn.lordicon.com/fdxqrdfe.json"
-                    trigger="hover"
-                    style="
+                <lord-icon src="https://cdn.lordicon.com/fdxqrdfe.json" trigger="hover" style="
                     margin-top: -4px;
                         width:25px;
                         height:25px;
@@ -164,10 +129,7 @@ justify-content: space-evenly;">
             <div class="comment">
               <div class="comment-icon">
                 <!-- <img src="../../assets/send.png" alt="send Icon"> -->
-                <lord-icon
-                    src="https://cdn.lordicon.com/ercyvufy.json"
-                    trigger="hover"
-                    style="
+                <lord-icon src="https://cdn.lordicon.com/ercyvufy.json" trigger="hover" style="
                     margin-top: -4px;
                         width:25px;
                         height:25px;
@@ -181,13 +143,14 @@ justify-content: space-evenly;">
             <b>{{ post.username }}</b> {{ post.description }}
           </div>
         </div>
-      </div>      
+      </div>
       <div class="post-timestamp">
         {{ post.timestamp | date:"MMM dd, yyyy 'at' hh:mm a" }}
-      </div> 
-    </div>   
+      </div>
+    </div>
   </div>
   <div class="right-float">
+
     <div class="div1">
       <div style="font-size: 20px;" class="sb-right" title="View Profile" (click)="navigateToProfile(userId)">
         <div style="cursor: pointer;">
@@ -198,27 +161,42 @@ justify-content: space-evenly;">
         </div>
       </div>
     </div>
+
     <div class="div2">
+
       <div style="font-size: 15px;" class="y">
         <!-- <button (click)="sortIncreasing()">Increasing Popularity</button> -->
-        <button appHoverEffect  mat-button style="color: lightgreen;" (click)="sortDecreasing()">
-          <mat-icon class="up" >trending_up</mat-icon>
+        <button appHoverEffect mat-button style="color: lightgreen;" (click)="sortDecreasing()">
+          <mat-icon class="up">trending_up</mat-icon>
           <span class="desc">Increasing Populartiy</span>
-        </button>      
+        </button>
       </div>
+
       <div style="font-size: 15px;" class="z">
         <button appHoverEffect mat-button (click)="sortIncreasing()" style="color: lightcoral;">
           <mat-icon class="down">trending_down</mat-icon>
           <span class="desc">Decreasing Populartiy</span>
-        </button>                  
+        </button>
       </div>
     </div>
+
     <div class="div3">
-      <div class="desc" style="color: grey;">
-        About . Help . Press . API . Jobs
-        Privacy . Terms . Locations . 
-        2023 INSTAGRAM
+      <div class="linksdiv">
+        <ul class="furtherlinks">
+          <li class="listItem">About</li>
+          <li class="listItem">Help</li>
+          <li class="listItem">Press</li>
+          <li class="listItem">API</li>
+          <li class="listItem">Jobs</li>
+          <li class="listItem">Privacy</li>
+          <li class="listItem">Terms</li>
+          <li class="listItem">Locations</li>
+        </ul>
       </div>
+    </div>
+    <div class="desc" style="color: grey;">
+      ---© 2023 INSTAGRAM---
     </div>
   </div>
 </div>
+<app-fab-button class="fab-button"></app-fab-button>

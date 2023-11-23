@@ -3,21 +3,7 @@
     <img class="insta-logo" src="assets/images/instagram-logo.png"  alt="Instagram" >
   </div>
 </div>
-<div style="position: fixed;
-top: 66px;
-left: 0px;
-bottom: 0px;
-width: 200px;
-background-color: white;
-font-family: Roboto;
-z-index: 1001;
-padding-top: 5px;
-display: flex;
-flex-direction: column;
-border: 1px solid lightgray;
-border-radius: 5px;
-align-items: center;
-justify-content: space-evenly;">
+<div class="sidebar">
   <div class="sb-container">
     <div class="sb-container-1">
       <div class="sb" (click)="route('/actualpage')">
@@ -61,9 +47,14 @@ justify-content: space-evenly;">
         <div class="button-descp">Alerts</div>
       </div>
     </div>
-    <div class="sb-container-logout">
-      <button appHoverEffect mat-button color="warn" class="logout" type="submit" (click)="onLogout()">Logout</button>
-    </div>
+    <div class="sb" title="Leaving so soon :(" (click)="onLogout()">
+      <a class="user-icon" style="cursor: pointer;" title="Logout">
+        <lord-icon class="nwpost-icon" src="https://cdn.lordicon.com/gwvmctbb.json" trigger="hover"
+          colors="primary:#000000,secondary:#000000" style="width:40px;height:40px">
+        </lord-icon>
+      </a>
+      <div class="button-descp" title="Leaving so soon :(" style="color: rgba(255, 0, 0, 0.784);">Logout</div>
+   </div>
   </div>
 </div>
 
@@ -101,3 +92,4 @@ justify-content: space-evenly;">
     </div>
   </div>    
 </div>
+<app-fab-button class="fab-button"></app-fab-button>

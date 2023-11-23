@@ -106,7 +106,7 @@ textarea {
 }
 
 .header {
-  height: 56px;
+  height: 65px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -159,6 +159,22 @@ textarea {
   align-items: center;
   justify-content: center;
 }
+.sidebar {
+  position: fixed;
+  top: 66px;
+  bottom: 0px;
+  width: 200px;
+  background-color: white;
+  font-family: Roboto;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 
 .sb {
   height: 74px;
@@ -202,11 +218,28 @@ textarea {
   height: 100vh;
 }
 
+.button-descp {
+  overflow: auto;
+}
+
+@media (max-width: 1380px) {
+  .desc {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  /*right floating elements*/
+  .div1,
+  .div2 {
+    display: none;
+  }
+}
+
 @media (max-width: 1000px) {
   .sidebar {
-    display: block;
-    width: 80px;
-  }
+    width: 50px;
+   }
 
   .sb img {
     height: 35px;
@@ -236,6 +269,58 @@ textarea {
   }
 }
 
+@media (max-width: 330px) {
+  .sidebar {
+    display: none;
+    width: 50px;
+  }
+  .fab-button {
+    display: block;
+  }
+}
+@media (min-width: 331px) {
+  .fab-button {
+    display: none;
+  }
+}
+.right-float {
+  height: 100px;
+  width: 250px;
+  top: 150px;
+  right: 200px;
+  position: fixed;
+  border-radius: 10px;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.up:hover {
+  color: lightgreen;
+}
+.down:hover {
+  color: lightcoral;
+}
+.up:hover mat-icon {
+  transform: translateY(-5px);
+}
+.down:hover mat-icon {
+  transform: translateY(5px);
+}
+.sb-right {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-right: 5px;
+}
+.fab-button{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;;
+}
 /* profile page grids */
 .main {
   margin-top: 80px;

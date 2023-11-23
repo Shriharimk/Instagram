@@ -1,0 +1,23 @@
+<div class="fab-wrapper">
+  <input id="fabCheckbox" type="checkbox" class="fab-checkbox" />
+  <label class="fab" for="fabCheckbox">
+    <span class="fab-dots fab-dots-1"></span>
+    <span class="fab-dots fab-dots-2"></span>
+    <span class="fab-dots fab-dots-3"></span>
+  </label>
+  <div class="fab-wheel">
+    <a class="fab-action fab-action-1" (click)="newPost()" title="Create Post!">
+      <lord-icon src="https://cdn.lordicon.com/zrkkrrpl.json" trigger="hover" colors="primary:white,secondary:white"
+        style="width:40px;height:40px">
+      </lord-icon>
+    </a>
+    <a class="fab-action fab-action-2" (click)="navigateToProfile()" title="{{ user.username }}">
+      <a style="cursor: pointer;"><img class="user-icon" src="{{user.profileImage}}" alt=""></a>
+    </a>
+    <a class="fab-action fab-action-3" (click)="logout()" title="Logout">
+      <lord-icon class="nwpost-icon" src="https://cdn.lordicon.com/gwvmctbb.json" trigger="hover"
+      colors="primary:white,secondary:white" style="width:40px;height:40px">
+      </lord-icon>
+    </a>
+  </div>
+</div>
