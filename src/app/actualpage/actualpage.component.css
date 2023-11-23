@@ -259,7 +259,7 @@ div {
     width: 100%;
   }
 }
-@media (max-width: 330px) {
+@media (max-width: 400px) {
   .sidebar {
     display: none;
   }
@@ -269,7 +269,7 @@ div {
   }  
 }
 
-@media (min-width: 331px) {
+@media (min-width: 400px) {
   .fab-button {
     display: none;
   }
