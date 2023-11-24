@@ -288,24 +288,6 @@ textarea {
   position: relative;
 }
 
-.c2username {
-  font-size: 18px;
-  text-align: center;
-}
-
-.c2description {
-  margin-top: 10px;
-  font-size: 16px;
-  width: 100%;
-  flex-wrap: wrap;
-  text-align: center;
-}
-
-.c2edit {
-  position: absolute;
-  right: 0px;
-}
-
 button {
   background-color: white;
   border: none;
@@ -345,4 +327,60 @@ button {
   flex-direction: column;
   background-color: grey;
   flex: 2;
+}
+
+@media (max-width: 320px) {
+  .main-container {
+    padding-left: 10px; /* Adjust as needed */
+    padding-right: 10px; /* Adjust as needed */
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .fab-button {
+    display: block;
+  }
+}
+
+/* Screen width between 481px and 720px */
+@media (min-width: 481px) and (max-width: 720px) {
+  .main-container {
+    padding-left: 30px; /* Adjust as needed */
+    padding-right: 30px; /* Adjust as needed */
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .fab-button {
+    display: block;
+  }
+}
+
+/* Additional styles for smaller screens */
+@media (max-width: 800px) {
+  .main-container {
+    padding-left: 0; /* Remove padding for smaller screens */
+    padding-right: 0; /* Remove padding for smaller screens */
+  }
+
+  .row1,
+  .row2,
+  .row3 {
+    width: 100%; /* Make rows full width for smaller screens */
+  }
+  .sidebar {
+    display: none;
+  }
+  .fab-button {
+    display: block;
+  }
+
+  .r1col1,
+  .r1col2 {
+    width: 100%; /* Make columns full width for smaller screens */
+  }
 }

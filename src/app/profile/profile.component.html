@@ -3,41 +3,34 @@
   <div class="sb-container">
     <div class="sb-container-1">
       <div class="sb" (click)="route('/actualpage')">
-        <lord-icon
-            src="https://cdn.lordicon.com/cnpvyndp.json"
-            trigger="hover"
-            style="width:40px;height:40px">
+        <lord-icon src="https://cdn.lordicon.com/cnpvyndp.json" trigger="hover" style="width:40px;height:40px">
         </lord-icon>
         <div class="button-descp">Home</div>
       </div>
-      <div class="sb" title="Reels!" >
-        <a style="cursor: pointer;" title="Reels" >
+      <div class="sb" title="Reels!">
+        <a style="cursor: pointer;" title="Reels">
           <!-- <img class="nwpost-icon" src="../../assets/video_7264012.png" alt="NewPost"> -->
-          <lord-icon
-              src="https://cdn.lordicon.com/lwvaowvp.json"
-              trigger="hover"
-              colors="primary:#000000,secondary:#000000"
-              style="
+          <lord-icon src="https://cdn.lordicon.com/lwvaowvp.json" trigger="hover"
+            colors="primary:#000000,secondary:#000000" style="
               width:40px;height:40px">
           </lord-icon>
         </a>
         <div class="button-descp">Reels</div>
       </div>
-      <div class="sb" title="Explore!" >
-        <a style="cursor: pointer;" title="Explore" ><img class="nwpost-icon" src="../../assets/compass_3405524.png" alt="NewPost"></a>
+      <div class="sb" title="Explore!">
+        <a style="cursor: pointer;" title="Explore"><img class="nwpost-icon" src="../../assets/compass_3405524.png"
+            alt="NewPost"></a>
         <div class="button-descp">Explore</div>
       </div>
-      <div class="sb" title="Messages!" >
-        <a style="cursor: pointer;" title="Messages" ><img class="nwpost-icon" src="../../assets/messenger_3781712.png" alt="NewPost"></a>
+      <div class="sb" title="Messages!">
+        <a style="cursor: pointer;" title="Messages"><img class="nwpost-icon" src="../../assets/messenger_3781712.png"
+            alt="NewPost"></a>
         <div class="button-descp">Msgs</div>
       </div>
-      <div class="sb" title="Alerts!" >
-        <a style="cursor: pointer;" title="Alerts" >
+      <div class="sb" title="Alerts!">
+        <a style="cursor: pointer;" title="Alerts">
           <!-- <img class="nwpost-icon" src="../../assets/notification.png" alt="NewPost"> -->
-          <lord-icon
-              src="https://cdn.lordicon.com/vspbqszr.json"
-              trigger="hover"
-              style="width:40px;height:40px">
+          <lord-icon src="https://cdn.lordicon.com/vspbqszr.json" trigger="hover" style="width:40px;height:40px">
           </lord-icon>
         </a>
         <div class="button-descp">Alerts</div>
@@ -50,7 +43,7 @@
         </lord-icon>
       </a>
       <div class="button-descp" title="Leaving so soon :(" style="color: rgba(255, 0, 0, 0.784);">Logout</div>
-   </div>
+    </div>
   </div>
 </div>
 
@@ -60,13 +53,21 @@
       <img class="profile-image" src="{{user.profileImage}}" alt="Profile Picture">
     </div>
     <div class="r1col2">
-      <div class="c2username">
+      <div class="c2username" style="
+      font-size: 18px;
+      text-align: center;">
         {{user.username}}
       </div>
-      <div class="c2description">
+      <div class="c2description" style="margin-top: 10px;
+      font-size: 16px;
+      width: 100%;
+      flex-wrap: wrap;
+      text-align: center;">
         {{user.description}}
       </div>
-      <div  class="c2edit">
+      <div class="c2edit" style="
+      position: absolute;
+      right: 0px;">
         <button *ngIf="check" [disabled]="!check" appHoverEffect class="button-descp" (click)="edit()">
           <img src="../../assets/edit.png">
         </button>
@@ -77,15 +78,15 @@
   <div class="row2">
     Posts
   </div>
-  
+
   <div class="row3">
     <div *ngFor="let post of userPosts" class="post">
-        <div class="col1">
-          <div class="post-image">
-            <img class="post-img"  src="{{post.path}}" alt="Post Image">
-          </div>        
-      </div>    
+      <div class="col1">
+        <div class="post-image">
+          <img class="post-img" src="{{post.path}}" alt="Post Image">
+        </div>
+      </div>
     </div>
-  </div>    
+  </div>
 </div>
 <app-fab-button class="fab-button"></app-fab-button>
