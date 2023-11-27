@@ -48,6 +48,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { InterceptorInterceptor } from './shared/interceptors/interceptor.interceptor';
 import { FabButtonComponent } from './shared/fab-button/fab-button.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
 
 
@@ -69,6 +70,7 @@ import { HeaderComponent } from './shared/header/header.component';
     SpinnerComponent,
     FabButtonComponent,
     HeaderComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

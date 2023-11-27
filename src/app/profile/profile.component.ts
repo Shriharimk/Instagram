@@ -43,6 +43,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     //receiving user from event.
+    this.profileService.profilePageLoaded.next(true);
     this.authUid=this.auth.userId;
     console.log("auth serice user id: "+ this.authUid);
 
@@ -155,5 +156,9 @@ export class ProfileComponent implements OnInit {
   }
   route(routePath: string) {
     this.router.navigate([routePath]);
+  }
+
+  ngOnDestroy(){
+    this.profileService.profilePageLoaded.next(false);
   }
 }

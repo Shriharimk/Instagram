@@ -3,7 +3,7 @@
     <img class="insta-logo2" src="../../assets/instagram.png" alt="Instagram">
     <img class="insta-logo" src="assets/images/instagram-logo.png" alt="Instagram">
   </div>
-  <div class="middle-sec">
+  <div *ngIf="!inProfilePgae" class="middle-sec">
     <input mat-icon-button [matMenuTriggerFor]="menu" class="searchbox" type="text" [(ngModel)]="searchItem"
       (input)="onSearchInputChange()" placeholder="Find others!!  " />
     <mat-menu #menu="matMenu">

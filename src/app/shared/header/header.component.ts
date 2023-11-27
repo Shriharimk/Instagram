@@ -3,6 +3,7 @@ import { UserService } from '../user.service';
 import { map } from 'rxjs';
 import { User } from 'src/app/class/user';
 import { Router } from '@angular/router';
+import { ProfileService } from '../profile.service';
 
 @Component({
   selector: 'app-header',
@@ -13,14 +14,21 @@ export class HeaderComponent {
   matchingUsers: any[] = [];
   usersList: User[] = [];
   searchItem: string = '';
+  inProfilePgae: boolean = false;
 
 
 
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(
+              private userService: UserService, 
+              private router: Router,
+              private profileService : ProfileService) { }
 
   ngOnInit() {
-    console.log('HEADER COMPONENT')
+    console.log('HEADER COMPONENT');
+    this.profileService.profilePageLoaded.subscribe((response) =>{
+      this.inProfilePgae = response;
+    });
     this.getUsersList();
 
   }

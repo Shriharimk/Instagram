@@ -134,71 +134,11 @@
   object-fit: cover;
 }
 
-.sidebar {
-  position: fixed;
-  top: 66px;
-  bottom: 0px;
-  width: 200px;
-  background-color: white;
-  font-family: Roboto;
-  z-index: 1001;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid lightgray;
-  border-radius: 5px;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.sb {
-  height: 74px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  font-size: 15px;
-  cursor: pointer;
-  width: 200px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  border-radius: 10px;
-}
-
 div {
   font-size: 15px;
 }
 
-.sb-container-logout {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow:unset;
-}
 
-.button-descp {
-  font-size: 15px;
-  text-align: left;
-}
-
-.sb img {
-  height: 35px;
-  width: 35px;
-  margin-bottom: 4px;
-}
-
-.sb-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
-}
-
-.button-descp {
-  overflow: auto;
-}
 
 .right-float {
   height: 250px;
@@ -278,15 +218,6 @@ div {
 }
 
 @media (max-width: 1000px) {
-  .sidebar {
-    width: 50px;
-  }
-  .sb img {
-    height: 35px;
-  }
-  .button-descp {
-    display: none;
-  }
   .insta-logo{
     display: none;
   }
@@ -295,11 +226,6 @@ div {
   }
   
 }
-/* @media (min-width: 1000px){
-  .insta-logo2{
-    display: block;
-  }
-} */
 
 @media (max-width: 800px) {
   .main-container {
@@ -314,21 +240,6 @@ div {
     width: 100%;
   }
 }
-@media (max-width: 400px) {
-  .sidebar {
-    display: none;
-  }
-
-  .fab-button {
-    display: block;
-  }  
-}
-
-@media (min-width: 400px) {
-  .fab-button {
-    display: none;
-  }
-}
 
 /* for mobile screens */
 /* Screen width up to 320px */
@@ -336,14 +247,6 @@ div {
   .main-container {
     padding-left: 10px; /* Adjust as needed */
     padding-right: 10px; /* Adjust as needed */
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .fab-button {
-    display: block;
   }
 }
 
@@ -353,14 +256,6 @@ div {
     padding-left: 20px; /* Adjust as needed */
     padding-right: 20px; /* Adjust as needed */
   }
-
-  .sidebar {
-    display: none;
-  }
-
-  .fab-button {
-    display: block;
-  }
 }
 
 /* Screen width between 481px and 720px */
@@ -369,14 +264,6 @@ div {
     padding-left: 30px; /* Adjust as needed */
     padding-right: 30px; /* Adjust as needed */
   }
-
-  .sidebar {
-    display: none;
-  }
-
-  .fab-button {
-    display: block;
-  }
 }
 
 /* Screen width between 721px and 1080px */
@@ -384,13 +271,5 @@ div {
   .main-container {
     padding-left: 40px; /* Adjust as needed */
     padding-right: 40px; /* Adjust as needed */
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .fab-button {
-    display: block;
   }
 }

@@ -164,3 +164,46 @@
   border-radius: 50%;
   object-fit: cover;
 }
+@media (max-width: 400px) {
+
+  .fab-button {
+    display: block;
+  }  
+}
+
+@media (min-width: 400px) {
+  .fab-button {
+    display: none;
+  }
+}
+
+/* for mobile screens */
+/* Screen width up to 320px */
+@media (max-width: 320px) {
+
+  .fab-button {
+    display: block;
+  }
+}
+
+/* Screen width between 321px and 480px */
+@media (min-width: 321px) and (max-width: 480px) {
+  .fab-button {
+    display: block;
+  }
+}
+
+/* Screen width between 481px and 720px */
+@media (min-width: 481px) and (max-width: 720px) {
+
+  .fab-button {
+    display: block;
+  }
+}
+
+/* Screen width between 721px and 1080px */
+@media (min-width: 721px) and (max-width: 1070px) {
+  .fab-button {
+    display: none;
+  }
+}

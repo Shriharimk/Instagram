@@ -2,7 +2,7 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../class/user';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +12,7 @@ export class ProfileService {
   private baseUrl = 'https://instagram-83b4b-default-rtdb.firebaseio.com/';
   updateProfile = new EventEmitter();
   userrecieved : EventEmitter<User> = new EventEmitter<User>();
+  profilePageLoaded = new BehaviorSubject<boolean>(false);
   
 
   getUserProfile(uid: string) {
