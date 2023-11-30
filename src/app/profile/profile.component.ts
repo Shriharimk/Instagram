@@ -47,21 +47,9 @@ export class ProfileComponent implements OnInit {
     this.authUid=this.auth.userId;
     console.log("auth serice user id: "+ this.authUid);
 
-
     this.profileService.userrecieved.subscribe((res) =>{
-      this.recievedUser= Object(res);
-      
+      this.recievedUser= Object(res);      
     })
-
-    // //getting id from url
-    // this.Route.params.subscribe(params => {
-    //   this.rUid = params['userId'];
-    //   this.userId=this.rUid; 
-    //   console.log("paramter userId: " + this.userId)
-    //   
-    // }, () =>{});
-
-
 
     this.Route.params.subscribe(params => {
       this.rUid = params['userId'];
@@ -69,10 +57,6 @@ export class ProfileComponent implements OnInit {
       console.log(this.rUid);
       this.userId=this.rUid;
       console.log('local userId in profile service: '+this.userId)
-      // this.loadProduct();
-      // this.cartService.getCartObservable().subscribe(items => {
-      //   this.cartCount = items.length;
-      // });
     }, err =>{});
     if(this.userId===this.authUid){ 
           this.check=true;
@@ -95,8 +79,10 @@ export class ProfileComponent implements OnInit {
 
   getUserDetails()
   {
+    this.isFetching=true;
     console.log("getUserDetails before response: "+this.userId)
       this.userService.getDetails(this.userId).subscribe(res =>{
+        this.isFetching=false;
       this.user=Object(res);
       this.username=this.user.username;
       this.loadUserProfile(this.userId);
@@ -104,7 +90,9 @@ export class ProfileComponent implements OnInit {
   }
 
   loadUserProfile(uid: string) {
+    this.isFetching=true;
     this.profileService.getUserProfile(uid).subscribe((data) => {
+      this.isFetching=false;
       this.user=Object(data);
       this.getUserPosts(uid);
     }, () =>{
@@ -113,16 +101,18 @@ export class ProfileComponent implements OnInit {
   }
 
   loadUserPosts(uid: string) {
-    
+    this.isFetching=true;    
     this.profileService.getUserPosts(uid).subscribe((data) => {
       this.userPosts = data;
-      this.isFetching=true;
+      this.isFetching=false;
     }, (err) => {
       alert('error in getting posts: ' + err);
     });
   }
 
   getUserPosts(uid: string) {
+    this.isFetching=true;
+
     console.log('getting posts for the user: '+ uid)
     this.profileService.getUserPosts(uid).pipe(map((response: any) => {
       const localPosts: Posts[] = [];
@@ -137,6 +127,7 @@ export class ProfileComponent implements OnInit {
       return localPosts;
     })).subscribe((data) => {
       this.userPosts = data;
+      this.isFetching=false;
       this.sorting();
     });
   }

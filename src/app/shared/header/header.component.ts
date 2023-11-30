@@ -61,6 +61,10 @@ export class HeaderComponent {
     });
   }
 
+  navigate(){
+    this.router.navigate(['/actualpage'])
+  }
+
   navigateToProfile(userId: string) {
     this.router.navigate(['/profiles', userId]);
   }

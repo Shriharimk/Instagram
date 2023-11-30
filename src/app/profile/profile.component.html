@@ -1,65 +1,21 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
-<div class="sidebar">
-  <div class="sb-container">
-    <div class="sb-container-1">
-      <div class="sb" (click)="route('/actualpage')">
-        <lord-icon src="https://cdn.lordicon.com/cnpvyndp.json" trigger="hover" style="width:40px;height:40px">
-        </lord-icon>
-        <div class="button-descp">Home</div>
-      </div>
-      <div class="sb" title="Reels!">
-        <a style="cursor: pointer;" title="Reels">
-          <!-- <img class="nwpost-icon" src="../../assets/video_7264012.png" alt="NewPost"> -->
-          <lord-icon src="https://cdn.lordicon.com/lwvaowvp.json" trigger="hover"
-            colors="primary:#000000,secondary:#000000" style="
-              width:40px;height:40px">
-          </lord-icon>
-        </a>
-        <div class="button-descp">Reels</div>
-      </div>
-      <div class="sb" title="Explore!">
-        <a style="cursor: pointer;" title="Explore"><img class="nwpost-icon" src="../../assets/compass_3405524.png"
-            alt="NewPost"></a>
-        <div class="button-descp">Explore</div>
-      </div>
-      <div class="sb" title="Messages!">
-        <a style="cursor: pointer;" title="Messages"><img class="nwpost-icon" src="../../assets/messenger_3781712.png"
-            alt="NewPost"></a>
-        <div class="button-descp">Msgs</div>
-      </div>
-      <div class="sb" title="Alerts!">
-        <a style="cursor: pointer;" title="Alerts">
-          <!-- <img class="nwpost-icon" src="../../assets/notification.png" alt="NewPost"> -->
-          <lord-icon src="https://cdn.lordicon.com/vspbqszr.json" trigger="hover" style="width:40px;height:40px">
-          </lord-icon>
-        </a>
-        <div class="button-descp">Alerts</div>
-      </div>
-    </div>
-    <div class="sb" title="Leaving so soon :(" (click)="onLogout()">
-      <a class="user-icon" style="cursor: pointer;" title="Logout">
-        <lord-icon class="nwpost-icon" src="https://cdn.lordicon.com/gwvmctbb.json" trigger="hover"
-          colors="primary:#000000,secondary:#000000" style="width:40px;height:40px">
-        </lord-icon>
-      </a>
-      <div class="button-descp" title="Leaving so soon :(" style="color: rgba(255, 0, 0, 0.784);">Logout</div>
-    </div>
-  </div>
-</div>
 
 <div class="main">
-  <div class="row1">
+  <app-spinner *ngIf="isFetching"></app-spinner>
+  <div *ngIf="!isFetching" class="row1">
     <div class="r1col1">
-      <img class="profile-image" src="{{user.profileImage}}" alt="Profile Picture">
+      <app-spinner *ngIf="isFetching"></app-spinner>
+      <img *ngIf="!isFetching" class="profile-image" src="{{user.profileImage}}" alt="Profile Picture">
     </div>
     <div class="r1col2">
-      <div class="c2username" style="
+      <app-spinner *ngIf="isFetching"></app-spinner>
+      <div *ngIf="!isFetching" class="c2username" style="
       font-size: 18px;
       text-align: center;">
         {{user.username}}
       </div>
-      <div class="c2description" style="margin-top: 10px;
+      <div *ngIf="!isFetching" class="c2description" style="margin-top: 10px;
       font-size: 16px;
       width: 100%;
       flex-wrap: wrap;
@@ -81,8 +37,10 @@
   </div>
 
   <div class="row3">
+    <app-spinner *ngIf="isFetching"></app-spinner>
+
     <div *ngFor="let post of userPosts" class="post">
-      <div class="col1">
+      <div *ngIf="!isFetching"class="col1">
         <div class="post-image">
           <img class="post-img" src="{{post.path}}" alt="Post Image">
         </div>
