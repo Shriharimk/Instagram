@@ -49,6 +49,7 @@ import { InterceptorInterceptor } from './shared/interceptors/interceptor.interc
 import { FabButtonComponent } from './shared/fab-button/fab-button.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { PostsComponent } from './actualpage/posts/posts.component';
 
 
 
@@ -71,6 +72,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     FabButtonComponent,
     HeaderComponent,
     SidebarComponent,
+    PostsComponent,
   ],
   imports: [
     BrowserModule,

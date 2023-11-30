@@ -1,0 +1,63 @@
+<div class="main-container">
+  <app-spinner *ngIf="!isFetching"></app-spinner>
+  <div *ngFor="let post of posts" class="post">
+    <div class="container">
+      <div class="column">
+        <div class="username" (click)="navigateToProfile(post.userId)" style="cursor: pointer;">
+          <div class="username-col1">
+            <img class="username-icon" [src]="userImageMap[post.userId]" alt="">
+          </div>
+          <div class="username-col2">
+            <b>{{ userNameMap[post.userId] }}</b>
+          </div>
+        </div>
+        <div class="post-image">
+          <img class="post-img" src="{{post.path}}" alt="Post Image">
+        </div>
+        <div class="like-comment">
+          <div (click)="likePost(post);" style="cursor: pointer;" title="Like!">
+            <div class="like">
+              <div class="like-icon">
+                <lord-icon src="https://cdn.lordicon.com/xyboiuok.json" trigger="hover" style="
+                    margin-top: -4px;
+                    width:25px;
+                    height:25px;
+                    padding: 0px;">
+                </lord-icon>
+              </div>
+              <div class="like-count">{{ post.likes }}</div>
+            </div>
+          </div>
+          <div class="comment">
+            <div class="comment-icon">
+              <lord-icon src="https://cdn.lordicon.com/fdxqrdfe.json" trigger="hover" style="
+                margin-top: -4px;
+                    width:25px;
+                    height:25px;
+                    padding: 0px;">
+              </lord-icon>
+            </div>
+            <div class="comment-count">75</div>
+          </div>
+          <div class="comment">
+            <div class="comment-icon">
+              <lord-icon src="https://cdn.lordicon.com/ercyvufy.json" trigger="hover" style="
+                margin-top: -4px;
+                    width:25px;
+                    height:25px;
+                    padding: 0px;">
+              </lord-icon>
+            </div>
+            <div class="comment-count"></div>
+          </div>
+        </div>
+        <div class="description">
+          <b>{{ post.username }}</b> {{ post.description }}
+        </div>
+      </div>
+    </div>
+    <div class="post-timestamp">
+      {{ post.timestamp | date:"MMM dd, yyyy 'at' hh:mm a" }}
+    </div>
+  </div>
+</div>

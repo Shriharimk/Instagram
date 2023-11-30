@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { AuthService } from '../shared/auth.service';
 import { Router } from '@angular/router';
 import { ProfileService } from '../shared/profile.service';
@@ -45,6 +45,11 @@ export class ActualpageComponent {
   isFetching :Boolean = false;
   horizontalPosition: MatSnackBarHorizontalPosition = 'right';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
+  order :string = '';
+
+  @Output() reOrder : EventEmitter<string> = new EventEmitter();
+
+
 
 
   sub1 : Subscription;
@@ -66,24 +71,11 @@ export class ActualpageComponent {
     private _snackBar: MatSnackBar){}
   
   ngOnInit(){
-    this.getPosts();
+    // this.getPosts();
     this.userId=this.auth.userId;
     console.log('user id from auth = '+this.userId)
     this.loadUserProfile(this.userId);
     this.getUsersList();
-    
-    this.sub1 = this.postService.newPostAdded.subscribe(data =>
-    {
-      this.getPosts();
-      },err => {
-        alert('Something went wrong');
-    })
-
-    this.sub2 = this.postService.postLiked.subscribe(data =>{
-      this.getPosts();
-      }, err =>{
-        alert('Something went wrong');
-      })
   }
   
   getUsersList(){
@@ -138,52 +130,14 @@ export class ActualpageComponent {
     this.dialog.open(NewPostComponent);
   }
 
-  getPosts() {
-    console.log('getting all Posts')
-    this.sub6 = this.postService.getAllPosts().pipe(map((response: any) => {
-      const posts: Posts[] = [];  
-      for (const key in response) {
-        if (response.hasOwnProperty(key)) {
-          const post = response[key]; // Create a new post object
-          post.postId = key;
-          posts.push(post); // Push the new post object to the array
-        }
-      }
-    return posts;
-    })).subscribe((data) => {
-      this.isFetching=true;
-      this.posts = data;
-      this.sorting();
-    });
-  }
-
-
   sortIncreasing(){
-    console.log('Sorting the posts based on likes');
-    this.posts.sort((a: Posts,b: Posts) => a.likes-b.likes);
+   this.order = 'increasing';
+   this.reOrder.emit(this.order);
   }
   sortDecreasing(){
-    console.log('Sorting the posts based on likes');
-    this.posts.sort((a: Posts,b: Posts) => b.likes-a.likes);
+    this.order = 'decreasing';
+    this.reOrder.emit(this.order);
   }  
-  sorting(){
-    console.log('Sorting the posts based on timestamp');
-    this.posts.sort((a, b) => b.timestamp - a.timestamp);
-  }
-  
-  
-  
-  likePost(post: Posts) {
-    this.liked=true
-    post.likes++;
-    this.sub7 = this.postService.updatePost(post.postId, post).subscribe(() => {
-      this.postService.postLiked.emit();
-    }, err => {
-      console.log('Error updating post likes: ', err);
-      this.liked=false;
-    });
-  }
-
 
   navigateToProfile(userId: string) {
     console.log('userId to be navigated to from actual page: '+userId)
