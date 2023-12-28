@@ -62,10 +62,10 @@ export class HeaderComponent {
   }
 
   navigate(){
-    this.router.navigate(['/actualpage'])
+    this.router.navigate(['/lazy'])
   }
 
   navigateToProfile(userId: string) {
-    this.router.navigate(['/profiles', userId]);
+    this.router.navigate(['/lazy/profiles', userId]);
   }
 }

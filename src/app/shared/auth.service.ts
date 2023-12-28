@@ -47,7 +47,7 @@ export class AuthService {
   login(email: string, password: string){
     this.fireauth.signInWithEmailAndPassword(email, password).then(res => {
       this.storeUserData(res.user);
-      this.router.navigate(['/actualpage']);
+      this.router.navigate(['/lazy']);
       this.loginStatus=true;
       this.userId = res.user.uid;
       this.authenticated=true;
@@ -135,7 +135,7 @@ export class AuthService {
   //signinwithgoogle
   googleSignIn(){
     return this.fireauth.signInWithPopup(new GoogleAuthProvider).then(res =>{      
-      this.router.navigate(['/','actualpage'])
+      this.router.navigate(['/','lazy'])
       this.storeUserData(res.user);
     }, err =>{
       alert(err.message);

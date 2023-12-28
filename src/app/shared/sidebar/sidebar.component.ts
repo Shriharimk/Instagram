@@ -76,12 +76,12 @@ export class SidebarComponent {
     const currentUrl = this.route.snapshot.url.map(segment => segment.path).join('/');
 
     // Check if the user is already on the 'profiles' page
-    if (currentUrl.includes('/profiles')) {
+    if (currentUrl.includes('/base/profiles')) {
       const updatedUrl = currentUrl.replace(/\/profiles\/.*$/, `/profiles/${userId}`);
       this.router.navigateByUrl(updatedUrl);
     } else {
       // Navigate to the 'profiles' page with the user ID
-      this.router.navigate(['/profiles', userId]);
+      this.router.navigate(['/base/profiles', userId]);
     }
   }
   onLogout() {

@@ -1,5 +1,5 @@
-<app-header></app-header>
-<app-sidebar></app-sidebar>
+<!-- <app-header></app-header>
+<app-sidebar></app-sidebar> -->
 
 <div class="main">
   <app-spinner *ngIf="isFetching"></app-spinner>
@@ -36,11 +36,22 @@
     Posts
   </div>
 
-  <div class="row3">
+  <!-- <div class="row3">
     <app-spinner *ngIf="isFetching"></app-spinner>
 
     <div *ngFor="let post of userPosts" class="post">
       <div *ngIf="!isFetching"class="col1">
+        <div class="post-image">
+          <img class="post-img" src="{{post.path}}" alt="Post Image">
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="row3">
+    <app-spinner *ngIf="isFetching"></app-spinner>
+  
+    <div *ngIf="!isFetching" class="post-grid">
+      <div *ngFor="let post of userPosts" class="col1">
         <div class="post-image">
           <img class="post-img" src="{{post.path}}" alt="Post Image">
         </div>

@@ -47,9 +47,6 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { InterceptorInterceptor } from './shared/interceptors/interceptor.interceptor';
 import { FabButtonComponent } from './shared/fab-button/fab-button.component';
-import { HeaderComponent } from './shared/header/header.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { PostsComponent } from './actualpage/posts/posts.component';
 
 
 
@@ -60,7 +57,6 @@ import { PostsComponent } from './actualpage/posts/posts.component';
     LoginComponent,
     SignupComponent,
     LandingComponent,
-    ActualpageComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
     ProfileComponent,
@@ -69,10 +65,8 @@ import { PostsComponent } from './actualpage/posts/posts.component';
     HoverEffectDirective,
     NotFoundComponent,
     SpinnerComponent,
-    FabButtonComponent,
-    HeaderComponent,
-    SidebarComponent,
-    PostsComponent,
+    // HeaderComponent,
+    // SidebarComponent,
   ],
   imports: [
     BrowserModule,

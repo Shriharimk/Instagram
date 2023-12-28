@@ -42,7 +42,7 @@ export class FabButtonComponent {
 
   navigateToProfile() {
     console.log('userId to be navigated to from actual page: ' + this.userId)
-    this.router.navigate(['/profiles', this.userId]);
+    this.router.navigate(['/base/profiles', this.userId]);
   }
 
   newPost() {

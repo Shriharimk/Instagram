@@ -80,7 +80,7 @@ textarea {
   padding: 8px;
 }
 
-.post-image {
+/* .post-image {
   display: flex;
   flex-direction: row;
   height: 80%;
@@ -89,14 +89,14 @@ textarea {
   max-width: 500px;
   max-height: 500px;
   overflow: hidden;
-}
+} */
 
-.post-img {
+/* .post-img {
   border-radius: 2px;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-}
+} */
 
 .nwpost-icon img,
 .like-icon img,
@@ -294,7 +294,6 @@ button {
 }
 
 .row2 {
-  height: 10vh;
   width: 500px;
   margin-top: 5px;
   display: flex;
@@ -302,16 +301,18 @@ button {
   align-items: center;
   justify-content: center;
   border-top: 1px solid lightgray;
+  font-size: 15px;
+  font-family:  'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell;
 }
 
 .row3 {
-  height: 500px;
+  height: auto;
   width: 500px;
   margin-top: 5px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  overflow: scroll;
+  overflow: hidden;
   justify-content: space-evenly;
 }
 
@@ -383,4 +384,31 @@ button {
   .r1col2 {
     width: 100%; /* Make columns full width for smaller screens */
   }
+}
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 5px;
+}
+
+.col1 {
+  height: 200px;
+  width: 100%;
+  margin-bottom: -5px;
+  
+}
+
+.post-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 0%;
+}
+
+.post-img {
+  border-radius: 2px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; 
 }
