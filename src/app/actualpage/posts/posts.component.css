@@ -121,8 +121,45 @@
   margin-top: -50px;
 }
 
-/* Add the remaining styles below */
+@media (max-width: 320px) {
+  .main-container {
+    padding-left: 10px;
+    /* Adjust as needed */
+    padding-right: 10px;
+    /* Adjust as needed */
+    font-size: 12px;
+  }
+}
 
-/* ... */
+/* Screen width between 321px and 480px */
+@media (min-width: 321px) and (max-width: 480px) {
+  .main-container {
+    padding-left: 20px;
+    /* Adjust as needed */
+    padding-right: 20px;
+    /* Adjust as needed */
+    font-size: 12px;
+  }
+}
 
-/* Add media queries if needed */
+/* Screen width between 481px and 720px */
+@media (min-width: 481px) and (max-width: 720px) {
+  .main-container {
+    padding-left: 30px;
+    /* Adjust as needed */
+    padding-right: 30px;
+    /* Adjust as needed */
+    font-size: 12px;
+  }
+}
+
+/* Screen width between 721px and 1080px */
+@media (min-width: 721px) and (max-width: 1080px) {
+  .main-container {
+    padding-left: 40px;
+    /* Adjust as needed */
+    padding-right: 40px;
+    /* Adjust as needed */
+    font-size: 12px;
+  }
+}
