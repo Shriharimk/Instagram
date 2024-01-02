@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Posts } from '../class/posts';
 import { Observable, map } from 'rxjs';
@@ -17,6 +17,14 @@ export class PostService {
     console.log('post service call to get all posts')
     return this.http.get<Posts[]>(`${this.baseUrl}/posts.json`);
   }
+  // getAllPosts(startIndex: number, limit: number): Observable<Posts[]> {
+  //   console.log('post service call to get posts with pagination');
+  //   const params = new HttpParams()
+  //     .set('start', startIndex.toString())
+  //     .set('limit', limit.toString());
+
+  //   return this.http.get<Posts[]>(`${this.baseUrl}/posts.json`, { params });
+  // }
   
   
   newPost(post: Posts)

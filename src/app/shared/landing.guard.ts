@@ -9,7 +9,7 @@ export const landingGuard: CanActivateFn = (route, state) => {
   const loginStatus = authService.loginStatus;
 
   if(loginStatus){
-    router.navigate(['/actualpage']);
+    router.navigate(['/lazy']);
     return false;
   }
   else{

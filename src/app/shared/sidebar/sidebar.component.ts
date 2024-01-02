@@ -81,7 +81,7 @@ export class SidebarComponent {
       this.router.navigateByUrl(updatedUrl);
     } else {
       // Navigate to the 'profiles' page with the user ID
-      this.router.navigate(['/base/profiles', userId]);
+      this.router.navigate(['/lazy/profiles', userId]);
     }
   }
   onLogout() {

@@ -141,7 +141,7 @@ export class ActualpageComponent {
 
   navigateToProfile(userId: string) {
     console.log('userId to be navigated to from actual page: '+userId)
-    this.router.navigate(['/base/profiles', userId]);
+    this.router.navigate(['/lazy/profiles', userId]);
   }
   
   onLogout() {
